@@ -6,12 +6,14 @@ export default function Home() {
   async function handleOnSubmit (e) {
     e.preventDefault();
     const formData = {}
+
     // Using currentTarget obj to create array of data then iterated through and added to obj
     Array.from(e.currentTarget.elements).forEach(field => {
       if(!field.name) return;
       formData[field.name] = field.value;
     });
-    fetch('/api/mail', {
+    
+    await fetch('/api/mail', {
       method: 'POST',
       body: JSON.stringify(formData)
     });
