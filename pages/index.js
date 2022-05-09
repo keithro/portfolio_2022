@@ -2,16 +2,32 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 
+// TODO: MOVE WITH FORM
+import ReCAPTCHA from "react-google-recaptcha";
+import { useRef } from "react";
+
 export default function Home() {
+  // FIXME: MOVE IF YOU USE INVISIBLE RECAPTCHA
+  const recaptchaRef = useRef();
+
+  // TODO: DON'T FORGET TO MOVE THIS WITH THE FORM
   async function handleOnSubmit (e) {
     e.preventDefault();
+    // setSubmitting(true);
+    // setServerErrors([]);
+    
     const formData = {}
-
     // Using currentTarget obj to create array of data then iterated through and added to obj
     Array.from(e.currentTarget.elements).forEach(field => {
       if(!field.name) return;
       formData[field.name] = field.value;
     });
+
+    // FIXME: ONLY FOR INVISIBLE FORM? **PUT IN TRY/CATCH BLOCK
+    const token = await recaptchaRef.current.executeAsync();
+    console.log("Your token: ", token);
+    recaptchaRef.current.reset();
+    formData.token = token;
     
     await fetch('/api/mail', {
       method: 'POST',
@@ -37,6 +53,7 @@ export default function Home() {
           Please be a human!
         </p>
 
+        {/* TODO: MOVE TO COMPONENT */}
         <div className={styles.grid}>
           <style jsx>{`
               label {
@@ -67,6 +84,15 @@ export default function Home() {
             <p>
               <button>Submit</button>
             </p>
+
+            <ReCAPTCHA
+              sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+              // FIXME: Remove if you decide to use invisible recaptcha
+              // onChange={handleOnSubmit}
+              // FIXME: For Invisible ReCAPTCHA
+              size='invisible'
+              ref={recaptchaRef}
+            />
           </form>
         </div>
       </main>
