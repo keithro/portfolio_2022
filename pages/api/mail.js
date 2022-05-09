@@ -8,8 +8,8 @@ export default async function handler(req, res) {
   // console.log(body);
 
   const isHuman = await validateHuman(body.token);
-  if(!isHuman) {
-    res.status(400).json({ errors: ["Cannot validate user"]});
+  if (!isHuman) {
+    res.status(400).json({ errors: ["Cannot validate user"] });
     return;
   }
 

@@ -1,39 +1,45 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import Head from "next/head";
+import Image from "next/image";
+import styles from "../styles/Home.module.css";
 
 // TODO: MOVE WITH FORM
 import ReCAPTCHA from "react-google-recaptcha";
 import { useRef } from "react";
 
 export default function Home() {
-  // FIXME: MOVE IF YOU USE INVISIBLE RECAPTCHA
+  // TODO: MOVE WITH FORM
   const recaptchaRef = useRef();
 
   // TODO: DON'T FORGET TO MOVE THIS WITH THE FORM
-  async function handleOnSubmit (e) {
+  async function handleOnSubmit(e) {
     e.preventDefault();
     // setSubmitting(true);
     // setServerErrors([]);
-    
-    const formData = {}
+
+    const formData = {};
     // Using currentTarget obj to create array of data then iterated through and added to obj
-    Array.from(e.currentTarget.elements).forEach(field => {
-      if(!field.name) return;
+    Array.from(e.currentTarget.elements).forEach((field) => {
+      if (!field.name) return;
       formData[field.name] = field.value;
     });
 
-    // FIXME: ONLY FOR INVISIBLE FORM? **PUT IN TRY/CATCH BLOCK
-    const token = await recaptchaRef.current.executeAsync();
-    console.log("Your token: ", token);
-    recaptchaRef.current.reset();
-    formData.token = token;
-    
-    await fetch('/api/mail', {
-      method: 'POST',
-      body: JSON.stringify(formData)
-    });
-    console.log(formData);
+    try {
+      const token = await recaptchaRef.current.executeAsync();
+      // console.log("Your token: ", token);
+      recaptchaRef.current.reset();
+      formData.token = token;
+
+      // FIXME: DO WE NEED TO SAVE A VARIABLE? IS RESPONSE FOR ERRORS?
+      await fetch("/api/mail", {
+        method: "POST",
+        body: JSON.stringify(formData),
+      });
+      console.log(formData);
+      // TODO: SET SUCCESS STATE/MESSAGE
+    } catch (error) {
+      // TODO: handle validation error
+      console.log(error);
+    }
   }
 
   return (
@@ -45,61 +51,52 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          Contact Form
-        </h1>
+        <h1 className={styles.title}>Contact Form</h1>
 
-        <p className={styles.description}>
-          Please be a human!
-        </p>
+        <p className={styles.description}>Please be a human!</p>
 
         {/* TODO: MOVE TO COMPONENT */}
         <div className={styles.grid}>
           <style jsx>{`
-              label {
-                display: block;
-                margin-botton: .2em;
-              }
-              button {
-                color: white;
-                background-color: blueviolet;
-                padding: .8em 1em;
-                border: 0;
-                border-radius: .2em;
-              }
-            `}</style>
-          <form method='post' onSubmit={handleOnSubmit}>
-            <p>
-              <label htmlFor='name'>Name</label>
-              <input type='text' name='name' />
-            </p>
-            <p>
-              <label htmlFor='email'>Email</label>
-              <input type='email' name='email' />
-            </p>
-            <p>
-              <label htmlFor='message'>Message</label>
-              <textarea name='message' />
-            </p>
-            <p>
+            label {
+              display: block;
+              margin-botton: 0.2em;
+            }
+            button {
+              color: white;
+              background-color: blueviolet;
+              padding: 0.8em 1em;
+              border: 0;
+              border-radius: 0.2em;
+            }
+          `}</style>
+          <form method="post" onSubmit={handleOnSubmit}>
+            <div>
+              <label htmlFor="name">Name</label>
+              <input type="text" name="name" />
+            </div>
+            <div>
+              <label htmlFor="email">Email</label>
+              <input type="email" name="email" />
+            </div>
+            <div>
+              <label htmlFor="message">Message</label>
+              <textarea name="message" />
+            </div>
+            <div>
               <button>Submit</button>
-            </p>
+            </div>
 
             <ReCAPTCHA
               sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
-              // FIXME: Remove if you decide to use invisible recaptcha
-              // onChange={handleOnSubmit}
-              // FIXME: For Invisible ReCAPTCHA
-              size='invisible'
+              size="invisible"
               ref={recaptchaRef}
             />
           </form>
         </div>
       </main>
 
-      <footer className={styles.footer}>
-        
-      </footer>
+      <footer className={styles.footer}></footer>
     </div>
-  )
+  );
 }
