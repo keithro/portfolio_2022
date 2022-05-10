@@ -46,10 +46,11 @@ const ContactForm = () => {
           color: white;
           background-color: blueviolet;
           padding: 0.8em 1em;
-          border: 0;
+          border: none;
           border-radius: 0.2em;
         }
       `}</style>
+
       <form method="post" onSubmit={handleOnSubmit}>
         <div>
           <label htmlFor="name">Name</label>

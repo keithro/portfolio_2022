@@ -14,3 +14,17 @@ a {
 * {
   box-sizing: border-box;
 }
+
+/* TODO: DELETE (FOR DEVELOPMENT ONLY) */
+section {
+  min-height: 80vh;
+}
+
+.content {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+footer {
+  text-align: center;
+}

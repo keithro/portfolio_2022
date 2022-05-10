@@ -3,7 +3,10 @@ import Image from "next/image";
 import styles from "../styles/Home.module.css";
 
 import Navbar from "../components/Navbar";
-import ContactForm from "../components/ContactForm";
+import Hero from "../components/Hero";
+import About from "../components/About";
+import Projects from "../components/Projects";
+import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 
 export default function Home() {
@@ -17,13 +20,13 @@ export default function Home() {
 
       <Navbar />
       <main className={styles.main}>
-        <h1 className={styles.title}>Contact Form</h1>
-
-        <p className={styles.description}>Please be a human!</p>
-
-        <ContactForm />
+        {/* <h1 className={styles.title}>Contact Form</h1>
+        <p className={styles.description}>Please be a human!</p> */}
+        <Hero />
+        <About />
+        <Projects />
+        <Contact />
       </main>
-
       <Footer />
     </div>
   );
