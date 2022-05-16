@@ -1,0 +1,9 @@
+@import "variables";
+
+.hero {
+  background: linear-gradient(
+    121.4deg,
+    $color-blue 5.84%,
+    $color-light-blue 61.16%
+  );
+}

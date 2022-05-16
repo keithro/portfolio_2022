@@ -1,9 +1,9 @@
 import Link from "next/link";
-import styles from "./../styles/Hero.module.css";
+import styles from "./../styles/Hero.module.scss";
 
 const Hero = () => {
   return (
-    <section id="home" className={styles.home}>
+    <section id="home" className={styles.hero}>
       <h2>A Full Stack Engineer</h2>
       <h1>That Brings It All Together</h1>
       <h2>A Full Stack Engineer</h2>
