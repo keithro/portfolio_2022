@@ -1,5 +1,7 @@
 @import "variables";
 @import "mixins";
+@import "typography";
+
 *,
 *::after,
 *::before {
@@ -9,6 +11,8 @@
 }
 
 html {
+  scroll-behavior: smooth;
+
   /* SETTING REM SIZE */
   font-size: 50%; // MOBILE: 1rem = 8px (8px / 16px)
 
