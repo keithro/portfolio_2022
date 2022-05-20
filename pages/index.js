@@ -8,7 +8,7 @@ import Projects from "../components/Projects";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 
-import styles from "../styles/Home.module.css";
+import styles from "../styles/Home.module.scss";
 
 export default function Home() {
   return (

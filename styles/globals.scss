@@ -1,0 +1,78 @@
+@import "variables";
+@import "mixins";
+@import "typography";
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  scroll-behavior: smooth;
+
+  /* SETTING REM SIZE */
+  font-size: 50%; // MOBILE: 1rem = 8px (8px / 16px)
+
+  @include respond(tablet) {
+    font-size: 56.25%; // TABLET 1rem = 9px (9px / 16px)
+  }
+
+  @include respond(desktop) {
+    font-size: 62.5%; // DESKTOP 1rem = 10px (10px / 16px)
+  }
+
+  @include respond(large-screen) {
+    font-size: 75%; // LARGE SCREEN 1rem = 12px (12px / 16px)
+  }
+}
+
+body {
+  box-sizing: border-box;
+  font-size: 1.6rem;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  color: $color-white;
+  background-color: $color-gray-dark;
+}
+
+// Highlighted Text
+::selection {
+  background-color: $color-purple;
+  color: $color-white;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* TODO: DELETE (FOR DEVELOPMENT ONLY) */
+section {
+  min-height: 80vh;
+}
+
+.content {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+footer {
+  text-align: center;
+}
+
+
+// DEFAULT STYLES
+// html,
+// body {
+//   padding: 0;
+//   margin: 0;
+//   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+//     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+// }
+
+// * {
+//   box-sizing: border-box;
+// }
+

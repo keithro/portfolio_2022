@@ -1,0 +1,25 @@
+@import "variables";
+
+.navbar {
+  position: fixed;
+  padding: $size-md;
+  left: 0;
+  right: 0;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  // align-items: stretch;
+}
+
+.logo {
+  img {
+    width: 3rem;
+  }
+}
+
+.menu {
+
+}
