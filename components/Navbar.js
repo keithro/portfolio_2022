@@ -9,7 +9,7 @@ const Navbar = () => {
         {/* <div className="content"> */}
         <div className={styles.logo}>
           <Image src="/logo.svg" alt="Keith Logo" width={30} height={30} />
-          <span className={styles.brand}>Keith</span>
+          <span className={styles.brand}>keith</span>
         </div>
 
         {/* TODO: Add icons and move to ui component so can reuse in Contact section */}
