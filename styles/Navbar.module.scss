@@ -1,6 +1,8 @@
 @import "variables";
 
 .navbar {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
   position: fixed;
   z-index: 10;
   padding: $size-md;
@@ -9,6 +11,8 @@
 }
 
 .content {
+  width: 90%;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -16,8 +20,16 @@
 }
 
 .logo {
+  font-size: 1.75rem;
+  display: flex;
+  align-items: center;
+
   img {
     width: 3rem;
+  }
+
+  span {
+    margin-left: $size-sm;
   }
 }
 

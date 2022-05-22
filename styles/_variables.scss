@@ -15,7 +15,19 @@ $color-black: #000000;
 
 $shadow-1: 0 .5rem 2rem rgba($color-black, .20);
 
-$size-sm: .8rem;
-$size-md: 1.6rem;
-$size-lg: 2.4rem;
+// $size-sm: .8rem; /* Mobile: 6.4px, DskTp: 8px */
+// $size-md: 1.6rem; /* Mobile: 12.8px, DskTp: 16px */
+// $size-lg: 2.4rem; /* Mobile: 19.2px, DskTp: 24px */
+// $size-xl: 3.2rem; /* Mobile: 25.6px, DskTp: 32px */
 
+$size-xs: .5rem; /* Mobile: 4px, DskTp: 5px */
+$size-sm: 1rem; /* Mobile: 8px, DskTp: 10px */
+$size-md: 1.5rem; /* Mobile: 12px, DskTp: 15px */
+$size-lg: 2rem; /* Mobile: 16px, DskTp: 20px */
+$size-xl: 4rem; /* Mobile: 32px, DskTp: 40px */
+
+// $size-xs: 1rem; /* Mobile: 8px, DskTp: 10px */
+// $size-sm: 1.5rem; /* Mobile: 12px, DskTp: 15px */
+// $size-md: 2rem; /* Mobile: 16px, DskTp: 20px */
+// $size-lg: 4rem; /* Mobile: 32px, DskTp: 40px */
+// $size-xl: 6rem; /* Mobile: 48px, DskTp: 60px */

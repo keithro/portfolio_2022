@@ -1,29 +1,20 @@
 import Link from "next/link";
 import Image from "next/image";
+import LogoIcon from "./icons/LogoIcon";
+import SocialLinks from "./ui/SocialLinks";
 import styles from "./../styles/Navbar.module.scss";
 
 const Navbar = () => {
   return (
     <header className={styles.navbar}>
       <div className={styles.content}>
-        {/* <div className="content"> */}
         <div className={styles.logo}>
-          <Image src="/logo.svg" alt="Keith Logo" width={30} height={30} />
+          {/* <Image src="/logo.svg" alt="Keith Logo" width={30} height={30} /> */}
+          <LogoIcon />
           <span className={styles.brand}>keith</span>
         </div>
 
-        {/* TODO: Add icons and move to ui component so can reuse in Contact section */}
-        {/* <div>
-          <Link href="#">
-            <a className="social-link"></a>
-          </Link>
-          <Link href="#">
-            <a className="social-link"></a>
-          </Link>
-          <Link href="#">
-            <a className="social-link"></a>
-          </Link>
-        </div> */}
+        <SocialLinks />
 
         <div className={styles.menu}>
           <span className={styles.hamburger}>&nbsp;</span>

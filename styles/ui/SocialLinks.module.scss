@@ -1,0 +1,10 @@
+// @import "mixins";
+@import "./../mixins";
+
+.social {
+  display: none;
+
+  @include respond(tablet) {
+    display: flex;
+  }
+}

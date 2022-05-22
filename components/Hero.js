@@ -8,7 +8,7 @@ const Hero = () => {
       <img className={styles.bg_img_1} src="/bg-layer-1.svg" alt="Background Layer 1"/>
       <img className={styles.bg_img_2} src="/bg-layer-2.svg" alt="Background Layer 2"/>
       <img className={styles.bg_img_3} src="/bg-layer-3.svg" alt="Background Layer 3"/>
-      
+
       <div className={styles.content}>
         <h2>A Full Stack Engineer</h2>
         <h1>That Brings It <br /> All Together</h1>
@@ -22,10 +22,6 @@ const Hero = () => {
           </Link>
         </div>
       </div>
-
-      {/* <Image src="/bg-layer-1.svg" alt="Background Layer 3" width={1000} height={1000} />
-      <Image src="/bg-layer-2.svg" alt="Background Layer 3" width={1000} height={1000} />
-      <Image src="/bg-layer-3.svg" alt="Background Layer 3" width={1000} height={1000} /> */}
     </section>
   );
 };

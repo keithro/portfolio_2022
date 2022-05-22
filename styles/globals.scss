@@ -32,15 +32,16 @@ html {
 body {
   box-sizing: border-box;
   font-size: 1.6rem;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  // TODO: DELETE ME
+  // font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   color: $color-white;
-  background-color: $color-gray-dark;
+  background-color: $color-light-blue;
 }
 
 // Highlighted Text
 ::selection {
-  background-color: $color-purple;
   color: $color-white;
+  background-color: $color-purple;
 }
 
 a {
@@ -50,7 +51,7 @@ a {
 
 /* TODO: DELETE (FOR DEVELOPMENT ONLY) */
 section {
-  min-height: 80vh;
+  min-height: 90vh;
 }
 
 .content {

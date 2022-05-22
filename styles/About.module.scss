@@ -1,0 +1,11 @@
+@import "variables";
+
+.container {
+  color: $color-black;
+  background-color: $color-white;
+  padding: $size-xl $size-lg;
+  border-top-left-radius: $size-xl;
+  border-top-right-radius: $size-xl;
+  // margin-left: $size-lg;
+}
+

@@ -13,16 +13,15 @@
 .content {
   margin-top: 16rem;
   padding: $size-md;
-  // To bring to front
-  position: relative;
+  position: relative; /* To bring to front */
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   z-index: 10;
 
   h1 {
-    text-transform: uppercase;
-    font-size: 4.8rem;
+    // text-transform: uppercase;
+    // font-size: 4.8rem;
     margin-bottom: $size-md;
   }
 
@@ -39,9 +38,11 @@
   flex-direction: column;
 
   a {
-    padding: $size-md $size-lg;
+    // font-size: 1.8rem; /* TODO: See what it looks like on phone
+    font-weight: bold;
+    padding: $size-md $size-xl;
     margin-bottom: $size-lg;
-    border-radius: $size-md;
+    border-radius: $size-sm;
   }
 }
 
@@ -66,7 +67,7 @@
 .bg_img_2 {
   max-width: 105rem;
   position: absolute;
-  bottom: -15rem;
+  bottom: -13rem;
   left: 0;
   right: 0;
 
@@ -76,7 +77,7 @@
 .bg_img_3 {
   max-width: 100rem;
   position: absolute;
-  bottom: -30rem;
+  bottom: -27rem;
   left: 0;
 
   // z-index: 0;
