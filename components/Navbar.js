@@ -8,11 +8,17 @@ const Navbar = () => {
   return (
     <header className={styles.navbar}>
       <div className={styles.content}>
-        <div className={styles.logo}>
-          {/* <Image src="/logo.svg" alt="Keith Logo" width={30} height={30} /> */}
+        {/* <div className={styles.logo}>
           <LogoIcon />
           <span className={styles.brand}>keith</span>
-        </div>
+        </div> */}
+
+        <Link href="#">
+          <a className={styles.logo}>
+            <LogoIcon />
+            <span className={styles.brand}>keith</span>
+          </a>
+        </Link>
 
         <SocialLinks />
 
