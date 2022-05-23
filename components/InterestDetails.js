@@ -1,7 +1,7 @@
 const TechDetails = () => {
   return (
     <>
-      <p>I&#39;ve also got a lot of interests!</p>
+      <p>I&#39;ve also got a lot of other interests!</p>
       <ul>
         <li>Working Out</li>
         <li>Biking</li>
@@ -10,6 +10,7 @@ const TechDetails = () => {
         <li>Photography</li>
         <li>Hiking</li>
         <li>Camping</li>
+        <li>Plants</li>
       </ul>
     </>
   );

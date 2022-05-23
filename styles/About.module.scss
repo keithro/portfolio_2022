@@ -3,9 +3,53 @@
 .container {
   color: $color-black;
   background-color: $color-white;
-  padding: $size-xl $size-lg;
+  padding: $size-lg;
   border-top-left-radius: $size-xl;
   border-top-right-radius: $size-xl;
   // margin-left: $size-lg;
 }
 
+.story {
+  margin-top: $size-xl;
+
+  h2 {
+    margin-bottom: $size-md;
+  }
+
+  p {
+    margin-bottom: $size-md;
+  }
+}
+
+.details {
+  margin-top: $size-xl;
+
+  h4 {
+    margin-bottom: $size-md;
+  }
+
+  p {
+    margin-bottom: $size-md;
+  }
+
+  ul {
+    columns: 2;
+    list-style: none;
+    // list-style-position: inside;
+  }
+
+  li::before {
+    // content: "\2022";
+    // color: $color-purple;
+    // font-weight: bold;
+
+    content: "";
+    background-color: $color-purple;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: $size-sm;
+    margin-bottom: 1px;
+    height: 0.8rem;
+    width: 0.8rem;
+  }
+}

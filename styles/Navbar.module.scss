@@ -1,7 +1,7 @@
 @import "variables";
 
 .navbar {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: bold;
   position: fixed;
   z-index: 10;
@@ -29,10 +29,9 @@
   }
 
   span {
-    margin-left: $size-sm;
+    margin-left: $size-xs;
   }
 }
 
 .menu {
-
 }

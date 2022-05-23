@@ -26,7 +26,7 @@ const About = () => {
             and where I can continue learning and find mentorship.
           </p>
         </main>
-        <aside>
+        <aside className={styles.details}>
           <h4>
             <span id="tech" className={styles.tech} onClick={handleShowDetails}>
               My Tech Stack

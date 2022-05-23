@@ -12,7 +12,7 @@
 
 .content {
   margin-top: 16rem;
-  padding: $size-md;
+  padding: $size-sm;
   position: relative; /* To bring to front */
   display: flex;
   flex-direction: column;
@@ -33,16 +33,16 @@
 }
 
 .buttons {
-  margin-top: $size-sm;
+  margin-top: $size-xs;
   display: flex;
   flex-direction: column;
 
   a {
     // font-size: 1.8rem; /* TODO: See what it looks like on phone
     font-weight: bold;
-    padding: $size-md $size-xl;
-    margin-bottom: $size-lg;
-    border-radius: $size-sm;
+    padding: $size-sm $size-lg;
+    margin-bottom: $size-md;
+    border-radius: $size-xs;
   }
 }
 
@@ -60,7 +60,7 @@
   position: absolute;
   bottom: -6rem;
   left: -10%;
-  
+
   // z-index: 0;
 }
 
@@ -82,4 +82,3 @@
 
   // z-index: 0;
 }
-
