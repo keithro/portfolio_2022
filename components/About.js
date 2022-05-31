@@ -11,7 +11,7 @@ const About = () => {
   };
 
   return (
-    <section id="about">
+    <section>
       <div className={styles.container}>
         <main className={styles.story}>
           <h2>My Story</h2>
@@ -41,6 +41,27 @@ const About = () => {
           </h4>
           {details === "tech" ? <TechDetails /> : <InterestDetails />}
         </aside>
+        <img
+          className={styles.bg_elipse_sm}
+          src="/bg-elipse-sm.svg"
+          alt="Background Elipse"
+        />
+        <img
+          className={styles.bg_elipse_lg}
+          src="/bg-elipse-lg.svg"
+          alt="Background Elipse"
+        />
+
+        <img
+          className={styles.bg_img_1}
+          src="/bg-about-layer-1.svg"
+          alt="Background Layer 1"
+        />
+        <img
+          className={styles.bg_img_2}
+          src="/bg-about-layer-2.svg"
+          alt="Background Layer 2"
+        />
       </div>
     </section>
   );

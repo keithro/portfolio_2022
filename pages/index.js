@@ -14,13 +14,15 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Keith&apos;s Portfolio</title>
+        {/* <title>Keith&apos;s Portfolio</title> */}
+        <title>Keith | Full Stack Engineer</title>
         <meta name="description" content="Keith Rodriguez's portfolio site" />
         <meta
           name="keywords"
           content="Keith Rodriguez, software engineer, front-end developer, full stack developer, back end developer"
         />
-        <link rel="icon" href="/favicon.ico" />
+        {/* <link rel="icon" href="/favicon.ico" /> */}
+        <link rel="icon" href="/favicon.png" />
       </Head>
 
       <Navbar />

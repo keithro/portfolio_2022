@@ -44,6 +44,10 @@ body {
   background-color: $color-purple;
 }
 
+p {
+  line-height: 2.2rem;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -63,7 +67,6 @@ footer {
   text-align: center;
 }
 
-
 // DEFAULT STYLES
 // html,
 // body {
@@ -76,4 +79,3 @@ footer {
 // * {
 //   box-sizing: border-box;
 // }
-
