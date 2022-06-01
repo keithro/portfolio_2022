@@ -1,7 +1,10 @@
 const TechDetails = () => {
   return (
     <>
-      <p>I&#39;ve also got a lot of other interests!</p>
+      <p>
+        I&#39;ve also got so many other interests and I love to chat about them
+        all so feel free to drop me a line!
+      </p>
       <ul>
         <li>Working Out</li>
         <li>Biking</li>

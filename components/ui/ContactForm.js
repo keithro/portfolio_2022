@@ -1,5 +1,6 @@
-import ReCAPTCHA from "react-google-recaptcha";
 import { useRef } from "react";
+import MailIcon from "../icons/MailIcon";
+import ReCAPTCHA from "react-google-recaptcha";
 import styles from "./../../styles/ui/ContactForm.module.scss";
 
 const ContactForm = () => {
@@ -40,18 +41,21 @@ const ContactForm = () => {
     <>
       <form className={styles.form} method="post" onSubmit={handleOnSubmit}>
         <div>
-          <label htmlFor="name">Name</label>
+          <label htmlFor="name">name*</label>
           <input type="text" name="name" />
         </div>
         <div>
-          <label htmlFor="email">Email</label>
+          <label htmlFor="email">email*</label>
           <input type="email" name="email" />
         </div>
         <div>
-          <label htmlFor="message">Message</label>
+          <label htmlFor="message">message*</label>
           <textarea name="message" />
         </div>
-        <button>Submit</button>
+        <button>
+          Send Message <MailIcon />
+        </button>
+
         {/* <div>
           <button>Submit</button>
         </div> */}

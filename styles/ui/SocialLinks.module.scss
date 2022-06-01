@@ -10,15 +10,16 @@
 // }
 
 .social {
-  // text-align: center;
-  display: flex;
+  text-align: center;
+  // display: flex;
   margin: 0 auto;
 
   a {
-    margin-right: $size-md;
+    margin-right: $size-lg;
 
     svg {
-      width: 3.4rem;
+      height: 4.2rem;
+      width: 4.2rem;
     }
   }
 

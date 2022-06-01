@@ -7,14 +7,14 @@ import styles from "./../../styles/ui/SocialLinks.module.scss";
 const SocialLinks = () => {
   return (
     <div className={styles.social}>
-      <Link href="https://www.linkedin.com/in/keithrodriguez/">
-        <a>
-          <LinkedInIcon />
-        </a>
-      </Link>
       <Link href="https://github.com/keithro">
         <a>
           <GitHubIcon />
+        </a>
+      </Link>
+      <Link href="https://www.linkedin.com/in/keithrodriguez/">
+        <a>
+          <LinkedInIcon />
         </a>
       </Link>
       <Link href="https://codepen.io/keither">

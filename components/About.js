@@ -16,7 +16,7 @@ const About = () => {
         <main className={styles.story}>
           <h2>My Story</h2>
           <p>
-            Hi! I&#39;m a former accountant...I recently completed General
+            Hi! I&#39;m a former accountant and I recently completed General
             Assembly&#39;s Software Engineering Immersive program where I
             learned to fundamentals of software engineering, I learned multiple
             frameworks and languages within a twelve week period and built
@@ -43,12 +43,12 @@ const About = () => {
         </aside>
         <img
           className={styles.bg_elipse_sm}
-          src="/bg-elipse-sm.svg"
+          src="/bg-about-elipse-sm.svg"
           alt="Background Elipse"
         />
         <img
           className={styles.bg_elipse_lg}
-          src="/bg-elipse-lg.svg"
+          src="/bg-about-elipse-lg.svg"
           alt="Background Elipse"
         />
 
