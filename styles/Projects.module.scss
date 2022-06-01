@@ -1,0 +1,11 @@
+@import "variables";
+
+.section {
+  background-color: $color-purple;
+
+  .container {
+    height: 95vh;
+    color: $color-black;
+    background-color: $color-white;
+  }
+}

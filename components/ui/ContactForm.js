@@ -1,5 +1,7 @@
-import ReCAPTCHA from "react-google-recaptcha";
 import { useRef } from "react";
+import MailIcon from "../icons/MailIcon";
+import ReCAPTCHA from "react-google-recaptcha";
+import styles from "./../../styles/ui/ContactForm.module.scss";
 
 const ContactForm = () => {
   const recaptchaRef = useRef();
@@ -36,37 +38,27 @@ const ContactForm = () => {
   }
 
   return (
-    <div>
-      <style jsx>{`
-        label {
-          display: block;
-          margin-botton: 0.2em;
-        }
-        button {
-          color: white;
-          background-color: blueviolet;
-          padding: 0.8em 1em;
-          border: none;
-          border-radius: 0.2em;
-        }
-      `}</style>
-
-      <form method="post" onSubmit={handleOnSubmit}>
+    <>
+      <form className={styles.form} method="post" onSubmit={handleOnSubmit}>
         <div>
-          <label htmlFor="name">Name</label>
+          <label htmlFor="name">name*</label>
           <input type="text" name="name" />
         </div>
         <div>
-          <label htmlFor="email">Email</label>
+          <label htmlFor="email">email*</label>
           <input type="email" name="email" />
         </div>
         <div>
-          <label htmlFor="message">Message</label>
+          <label htmlFor="message">message*</label>
           <textarea name="message" />
         </div>
-        <div>
+        <button>
+          Send Message <MailIcon />
+        </button>
+
+        {/* <div>
           <button>Submit</button>
-        </div>
+        </div> */}
 
         <ReCAPTCHA
           sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
@@ -74,7 +66,7 @@ const ContactForm = () => {
           ref={recaptchaRef}
         />
       </form>
-    </div>
+    </>
   );
 };
 
