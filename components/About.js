@@ -11,7 +11,7 @@ const About = () => {
   };
 
   return (
-    <section>
+    <section id="about">
       <div className={styles.container}>
         <main className={styles.story}>
           <h2>My Story</h2>

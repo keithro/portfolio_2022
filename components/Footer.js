@@ -1,7 +1,9 @@
+import styles from "./../styles/Footer.module.scss";
+
 const Footer = () => {
   return (
-    <footer>
-      &copy; Copyright 2022 <span>Keith Rodriguez</span>
+    <footer className={styles.footer}>
+      &copy; 2022 <span>Keith Rodriguez</span> | All Rights Reserved
     </footer>
   );
 };

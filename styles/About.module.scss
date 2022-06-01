@@ -2,7 +2,7 @@
 
 .container {
   color: $color-black;
-  background-color: $color-white;
+  background-color: $color-gray-light;
   padding: $size-lg;
   border-top-left-radius: $size-xl;
   border-top-right-radius: $size-xl;
@@ -17,8 +17,8 @@
   }
 
   .bg_elipse_sm {
-    bottom: 38rem;
-    left: 8rem;
+    bottom: 36rem;
+    left: 7rem;
     width: 10rem;
   }
 

@@ -1,0 +1,19 @@
+@import "variables";
+
+.section {
+  background: linear-gradient(180deg, #6d38dd 0%, #3b3841 100%);
+
+  * {
+    border: solid 1px hotpink;
+  }
+
+  .content {
+    padding: $size-md;
+
+    .container {
+      .text {
+        text-align: right;
+      }
+    }
+  }
+}

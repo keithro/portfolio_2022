@@ -20,7 +20,7 @@ const Navbar = () => {
           </a>
         </Link>
 
-        <SocialLinks />
+        {/* <SocialLinks /> */}
 
         <div className={styles.menu}>
           <span className={styles.hamburger}>&nbsp;</span>
@@ -35,7 +35,7 @@ const Navbar = () => {
               <a className={styles.link}>Projects</a>
             </Link>
             <Link href="#contact">
-              <a className={styles.link}>Contacts</a>
+              <a className={styles.link}>Contact</a>
             </Link>
           </nav>
         </div>
