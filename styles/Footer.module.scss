@@ -1,0 +1,12 @@
+@import "variables";
+
+.footer {
+  padding: $size-md;
+  text-align: center;
+  background-color: $color-gray-dark;
+  color: $color-gray-text;
+
+  // span {
+  //   color: $color-gray-light;
+  // }
+}

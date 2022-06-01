@@ -1,0 +1,58 @@
+@import "./../variables";
+
+.form {
+  // display: flex;
+  // flex-direction: column;
+  // align-items: stretch;
+  margin-bottom: $size-xl;
+
+  label {
+    display: block;
+    margin: 0.6rem 0 0.3rem 0.8rem;
+  }
+
+  input,
+  textarea {
+    font-size: 1.8rem;
+    padding: $size-sm;
+    width: 100%;
+    border: none;
+    border-radius: $size-xs;
+    box-shadow: inset 0px 5px $size-md rgba(0, 0, 0, 0.15);
+  }
+
+  input {
+  }
+
+  textarea {
+    font-family: inherit;
+    min-height: 12rem;
+    max-width: 100%;
+  }
+
+  button {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: $color-white;
+    background-color: $color-red;
+    margin: $size-lg auto 0 auto;
+    height: 5.8rem;
+    width: 22rem;
+    border: none;
+    border-radius: $size-xs;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    svg {
+      margin-left: $size-xs;
+    }
+
+    // color: white;
+    // background-color: blueviolet;
+    // padding: 0.8em 1em;
+    // border: none;
+    // border-radius: 0.2em;
+  }
+}

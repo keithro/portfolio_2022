@@ -1,30 +1,48 @@
 import Link from "next/link";
 import Image from "next/image";
+
+import MailIcon from "./icons/MailIcon";
+import ArrowIcon from "./icons/ArrowIcon";
 import styles from "./../styles/Hero.module.scss";
 
 const Hero = () => {
   return (
-    <section id="home" className={styles.hero}>
+    <section id="home" className={styles.section}>
+      <img
+        className={styles.bg_img_1}
+        src="/bg-hero-layer-1.svg"
+        alt="Background Layer 1"
+      />
+      <img
+        className={styles.bg_img_2}
+        src="/bg-hero-layer-2.svg"
+        alt="Background Layer 2"
+      />
+      <img
+        className={styles.bg_img_3}
+        src="/bg-hero-layer-3.svg"
+        alt="Background Layer 3"
+      />
+
       <div className={styles.content}>
         <h2>A Full Stack Engineer</h2>
-        <h1>That Brings It <br /> All Together</h1>
+        <h1>
+          That Brings It <br /> All Together
+        </h1>
         <h2>I&#8217;m Keith Rodriguez</h2>
         <div className={styles.buttons}>
           <Link href="#contact">
-            <a className={styles.contact}>Contact Me</a>
+            <a className={styles.contact}>
+              Contact Me <MailIcon />
+            </a>
           </Link>
           <Link href="#projects">
-            <a className={styles.projects}>My Portfolio</a>
+            <a className={styles.projects}>
+              My Portfolio <ArrowIcon />
+            </a>
           </Link>
         </div>
       </div>
-
-      {/* <img src="/bg-layer-1.svg" alt="Background Layer 3"/>
-      <img src="/bg-layer-2.svg" alt="Background Layer 3"/>
-      <img src="/bg-layer-3.svg" alt="Background Layer 3"/> */}
-      {/* <Image src="/bg-layer-1.svg" alt="Background Layer 3" width={1000} height={1000} />
-      <Image src="/bg-layer-2.svg" alt="Background Layer 3" width={1000} height={1000} />
-      <Image src="/bg-layer-3.svg" alt="Background Layer 3" width={1000} height={1000} /> */}
     </section>
   );
 };

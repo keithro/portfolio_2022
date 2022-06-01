@@ -1,0 +1,100 @@
+@import "variables";
+
+.container {
+  color: $color-black;
+  background-color: $color-gray-light;
+  padding: $size-lg;
+  border-top-left-radius: $size-xl;
+  border-top-right-radius: $size-xl;
+
+  position: relative;
+  overflow: hidden;
+
+  // margin-left: $size-lg;
+
+  img {
+    position: absolute;
+  }
+
+  .bg_elipse_sm {
+    bottom: 36rem;
+    left: 7rem;
+    width: 10rem;
+  }
+
+  .bg_elipse_lg {
+    top: 2rem;
+    right: 7rem;
+    width: 20rem;
+  }
+
+  .bg_img_1 {
+    max-width: 60rem;
+    bottom: 0;
+    left: 0;
+  }
+
+  .bg_img_2 {
+    max-width: 51rem;
+    bottom: 0;
+    left: 8rem;
+  }
+}
+
+.story {
+  margin-top: $size-xl;
+  position: relative;
+  z-index: 2;
+
+  h2 {
+    margin-bottom: $size-md;
+  }
+
+  p {
+    margin-bottom: $size-md;
+  }
+}
+
+.details {
+  margin-top: $size-xl;
+  position: relative;
+  z-index: 2;
+
+  h4 {
+    margin-bottom: $size-md;
+
+    span:first-child {
+      margin-right: $size-md;
+    }
+  }
+
+  p {
+    margin-bottom: $size-md;
+  }
+
+  ul {
+    margin-bottom: 40rem;
+    columns: 2;
+    list-style: none;
+    // list-style-position: inside;
+  }
+
+  li {
+    margin-bottom: $size-xs;
+  }
+
+  li::before {
+    // content: "\2022";
+    // color: $color-purple;
+    // font-weight: bold;
+
+    content: "";
+    background-color: $color-purple;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: $size-sm;
+    margin-bottom: 1px;
+    height: 0.8rem;
+    width: 0.8rem;
+  }
+}

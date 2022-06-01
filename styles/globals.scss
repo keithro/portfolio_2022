@@ -32,15 +32,20 @@ html {
 body {
   box-sizing: border-box;
   font-size: 1.6rem;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  // TODO: DELETE ME
+  // font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   color: $color-white;
-  background-color: $color-gray-dark;
+  background-color: $color-light-blue;
 }
 
 // Highlighted Text
 ::selection {
-  background-color: $color-purple;
   color: $color-white;
+  background-color: $color-purple;
+}
+
+p {
+  line-height: 2.2rem;
 }
 
 a {
@@ -48,31 +53,7 @@ a {
   text-decoration: none;
 }
 
-/* TODO: DELETE (FOR DEVELOPMENT ONLY) */
-section {
-  min-height: 80vh;
-}
-
 .content {
   max-width: 960px;
   margin: 0 auto;
 }
-
-footer {
-  text-align: center;
-}
-
-
-// DEFAULT STYLES
-// html,
-// body {
-//   padding: 0;
-//   margin: 0;
-//   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-//     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-// }
-
-// * {
-//   box-sizing: border-box;
-// }
-
