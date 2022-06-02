@@ -1,4 +1,4 @@
-const TechDetails = () => {
+const InterestDetails = () => {
   return (
     <>
       <p>
@@ -19,4 +19,4 @@ const TechDetails = () => {
   );
 };
 
-export default TechDetails;
+export default InterestDetails;

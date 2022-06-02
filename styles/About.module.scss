@@ -1,4 +1,5 @@
 @import "variables";
+@import "animations";
 
 .container {
   color: $color-black;
@@ -17,15 +18,17 @@
   }
 
   .bg_elipse_sm {
-    bottom: 36rem;
-    left: 7rem;
-    width: 10rem;
+    top: 6rem;
+    right: 10rem;
+    width: 12rem;
+    animation: spin-left infinite 42s linear;
   }
 
   .bg_elipse_lg {
-    top: 2rem;
-    right: 7rem;
-    width: 20rem;
+    bottom: 34rem;
+    left: -4rem;
+    width: 28rem;
+    animation: spin-right infinite 45s linear;
   }
 
   .bg_img_1 {
