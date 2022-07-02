@@ -20,3 +20,12 @@ $size-sm: 1.5rem; /* Mobile: 12px, DskTp: 15px */
 $size-md: 2rem; /* Mobile: 16px, DskTp: 20px */
 $size-lg: 3rem; /* Mobile: 24px, DskTp: 30px */
 $size-xl: 6rem; /* Mobile: 48px, DskTp: 60px */
+
+:export {
+  colorPurple: $color-purple;
+  colorBlue: $color-blue;
+  colorLightBlue: $color-light-blue;
+  colorAqua: $color-aqua;
+  colorOrange: $color-orange;
+  colorRed: $color-red;
+}
