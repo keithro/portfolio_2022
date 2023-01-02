@@ -1,4 +1,5 @@
 @import "variables";
+@import "animations";
 
 .section {
   background: linear-gradient(180deg, #6d38dd 0%, #3b3841 100%);
@@ -13,12 +14,14 @@
     top: 30rem;
     right: -4rem;
     width: 14rem;
+    animation: spin-left infinite 40s linear;
   }
 
   .bg_elipse_lg {
     bottom: 10rem;
     left: -8rem;
     width: 28rem;
+    animation: spin-right infinite 45s linear;
   }
 
   .bg_img_1 {
