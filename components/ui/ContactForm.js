@@ -29,7 +29,8 @@ const ContactForm = () => {
         method: "POST",
         body: JSON.stringify(formData),
       });
-      console.log(formData);
+      console.log({ formData }); // this is only the original data from form
+
       // TODO: SET SUCCESS STATE/MESSAGE
     } catch (error) {
       // TODO: handle validation error

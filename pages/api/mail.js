@@ -5,7 +5,7 @@ mail.setApiKey(process.env.SENDGRID_API_KEY);
 
 export default async function handler(req, res) {
   const body = JSON.parse(req.body);
-  // console.log(body);
+  console.log(body);
 
   const isHuman = await validateHuman(body.token);
   if (!isHuman) {
