@@ -39,6 +39,6 @@ async function validateHuman(token) {
     { method: "POST" }
   );
   const data = await response.json();
-  // console.log("recaptcha response data: ", data);
+  console.log("recaptcha response data: ", data);
   return data.success;
 }
