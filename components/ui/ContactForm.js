@@ -5,8 +5,8 @@ import styles from "./../../styles/ui/ContactForm.module.scss";
 
 const ContactForm = () => {
   const recaptchaRef = useRef();
-  const [submitting, setSubmitting] = setState(false);
-  const [serverErrors, setServerErrors] = setState([]);
+  const [submitting, setSubmitting] = useState(false);
+  const [serverErrors, setServerErrors] = useState([]);
 
   async function handleOnSubmit(e) {
     e.preventDefault();
@@ -26,25 +26,41 @@ const ContactForm = () => {
       recaptchaRef.current.reset();
       formData.token = token;
 
-      // FIXME: DO WE NEED TO SAVE A VARIABLE? IS RESPONSE FOR ERRORS ONLY?
-      await fetch("/api/mail", {
+      console.log({ formData }); // this is only the original data from form
+
+      const response = await fetch("/api/mail", {
         method: "POST",
         body: JSON.stringify(formData),
       });
-      console.log({ formData }); // this is only the original data from form
+      console.log(response.status);
+      const data = await response.json();
+
+      if (data.errors) {
+        console.log("Something went wrong!", data.errors);
+        setServerErrors(data.errors);
+      } else {
+        console.log("Successfully sent!");
+      }
 
       // TODO: SET SUCCESS STATE/MESSAGE
       setSubmitting(false);
     } catch (error) {
-      // TODO: handle validation error
       console.log(error);
-      setServerErrors(errors);
+      // TODO: handle validation error
+      // setServerErrors(error);
     }
   }
 
   return (
     <>
       <form className={styles.form} method="post" onSubmit={handleOnSubmit}>
+        {serverErrors && (
+          <ul>
+            {serverErrors.map((error) => {
+              <li key={error}>{error}</li>;
+            })}
+          </ul>
+        )}
         <div>
           <label htmlFor="name">name*</label>
           <input type="text" name="name" />
@@ -57,7 +73,7 @@ const ContactForm = () => {
           <label htmlFor="message">message*</label>
           <textarea name="message" />
         </div>
-        <button>
+        <button disabled={submitting}>
           Send Message <MailIcon />
         </button>
 

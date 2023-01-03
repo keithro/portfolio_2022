@@ -8,8 +8,8 @@ export default async function handler(req, res) {
   console.log("Form data received from request: ", formData);
 
   const isHuman = await validateHuman(formData.token);
-  if (!isHuman) {
-    res.status(400).json({ errors: ["Cannot validate user"] });
+  if (!isHuman.success) {
+    res.status(400).json({ errors: isHuman["error-codes"] });
     return;
   }
 
@@ -34,13 +34,20 @@ export default async function handler(req, res) {
 
 async function validateHuman(token) {
   const secret = process.env.RECAPTCHA_SECRET_KEY;
-  const response = await fetch(
-    `https://www.google.com/recaptcha/api/siteverify?secret=${secret}&response=${token}`,
-    { method: "POST" }
-  );
-  const data = await response.json();
 
-  console.log("recaptcha response data: ", data);
+  try {
+    const response = await fetch(
+      `https://www.google.com/recaptcha/api/siteverify?secret=${secret}&response=${token}`,
+      { method: "POST" }
+    );
+    console.log(response.status);
+    const data = await response.json();
 
-  return data.success;
+    console.log("recaptcha response data: ", data);
+
+    return data;
+  } catch (error) {
+    console.log("Captcha validation error: ", error);
+    return { success: false, "error-codes": ["Unable to verify captcha"] };
+  }
 }
