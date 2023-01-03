@@ -1,15 +1,17 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import MailIcon from "../icons/MailIcon";
 import ReCAPTCHA from "react-google-recaptcha";
 import styles from "./../../styles/ui/ContactForm.module.scss";
 
 const ContactForm = () => {
   const recaptchaRef = useRef();
+  const [submitting, setSubmitting] = setState(false);
+  const [serverErrors, setServerErrors] = setState([]);
 
   async function handleOnSubmit(e) {
     e.preventDefault();
-    // setSubmitting(true);
-    // setServerErrors([]);
+    setSubmitting(true);
+    setServerErrors([]);
 
     const formData = {};
     // Using currentTarget obj to create array of data then iterated through and added to obj
@@ -20,11 +22,11 @@ const ContactForm = () => {
 
     try {
       const token = await recaptchaRef.current.executeAsync();
-      // console.log("Your token: ", token);
+      console.log("Your token: ", token); // DELETE
       recaptchaRef.current.reset();
       formData.token = token;
 
-      // FIXME: DO WE NEED TO SAVE A VARIABLE? IS RESPONSE FOR ERRORS?
+      // FIXME: DO WE NEED TO SAVE A VARIABLE? IS RESPONSE FOR ERRORS ONLY?
       await fetch("/api/mail", {
         method: "POST",
         body: JSON.stringify(formData),
@@ -32,9 +34,11 @@ const ContactForm = () => {
       console.log({ formData }); // this is only the original data from form
 
       // TODO: SET SUCCESS STATE/MESSAGE
+      setSubmitting(false);
     } catch (error) {
       // TODO: handle validation error
       console.log(error);
+      setServerErrors(errors);
     }
   }
 

@@ -4,19 +4,19 @@ const mail = require("@sendgrid/mail");
 mail.setApiKey(process.env.SENDGRID_API_KEY);
 
 export default async function handler(req, res) {
-  const body = JSON.parse(req.body);
-  console.log(body);
+  const formData = JSON.parse(req.body);
+  console.log("Form data received from request: ", formData);
 
-  const isHuman = await validateHuman(body.token);
+  const isHuman = await validateHuman(formData.token);
   if (!isHuman) {
     res.status(400).json({ errors: ["Cannot validate user"] });
     return;
   }
 
   const message = `
-    Name: ${body.name}\r\n
-    Email: ${body.email}\r\n
-    Message: ${body.message}
+    Name: ${formData.name}\r\n
+    Email: ${formData.email}\r\n
+    Message: ${formData.message}
   `;
 
   const data = {
@@ -39,6 +39,8 @@ async function validateHuman(token) {
     { method: "POST" }
   );
   const data = await response.json();
+
   console.log("recaptcha response data: ", data);
+
   return data.success;
 }
