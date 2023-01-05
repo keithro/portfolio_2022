@@ -8,6 +8,7 @@ const InterestDetails = () => {
       <ul>
         <li>Working Out</li>
         <li>Biking</li>
+        <li>Pickleball</li>
         <li>Learning Spanish</li>
         <li>Reading</li>
         <li>Photography</li>

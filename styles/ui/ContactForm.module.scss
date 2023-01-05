@@ -21,9 +21,6 @@
     box-shadow: inset 0px 5px $size-md rgba(0, 0, 0, 0.15);
   }
 
-  input {
-  }
-
   textarea {
     font-family: inherit;
     min-height: 12rem;
@@ -58,11 +55,5 @@
     &:disabled {
       opacity: 0.5;
     }
-
-    // color: white;
-    // background-color: blueviolet;
-    // padding: 0.8em 1em;
-    // border: none;
-    // border-radius: 0.2em;
   }
 }

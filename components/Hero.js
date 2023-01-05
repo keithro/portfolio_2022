@@ -29,7 +29,7 @@ const Hero = () => {
         <h1>
           That Brings It <br /> All Together
         </h1>
-        <h2>I&#8217;m Keith Rodriguez</h2>
+        <h2>Hello! I&#8217;m Keith</h2>
         <div className={styles.buttons}>
           <Link href="#contact">
             <a className={styles.contact}>

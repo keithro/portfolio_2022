@@ -1,5 +1,6 @@
 @import "variables";
 @import "animations";
+@import "mixins";
 
 .section {
   background: linear-gradient(180deg, #6d38dd 0%, #3b3841 100%);
@@ -14,14 +15,14 @@
     top: 30rem;
     right: -4rem;
     width: 14rem;
-    animation: spin-left infinite 40s linear;
+    animation: spin-left infinite 60s linear;
   }
 
   .bg_elipse_lg {
     bottom: 10rem;
     left: -8rem;
     width: 28rem;
-    animation: spin-right infinite 45s linear;
+    animation: spin-right infinite 70s linear;
   }
 
   .bg_img_1 {
@@ -33,7 +34,7 @@
 
   .bg_img_2 {
     // max-width: 51rem;
-    width: 90%;
+    max-width: 90%;
     top: 0;
     left: 0;
   }
@@ -42,6 +43,10 @@
     padding: $size-md;
     margin-top: 34rem;
     position: relative;
+
+    @include respond(tablet) {
+      padding: $size-xl;
+    }
 
     .container {
       .text {

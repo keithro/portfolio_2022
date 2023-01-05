@@ -1,46 +1,75 @@
 @import "variables";
 @import "animations";
+@import "mixins";
 
 .container {
   color: $color-black;
   background-color: $color-gray-light;
   padding: $size-lg;
+  margin-left: $size-sm;
   border-top-left-radius: $size-xl;
-  border-top-right-radius: $size-xl;
+  // border-top-right-radius: $size-xl;
 
   position: relative;
   overflow: hidden;
 
-  // margin-left: $size-lg;
+  @include respond(tablet) {
+    margin-left: $size-lg;
+    padding: $size-xl;
+  }
+
+  // @include respond(tablet) {
+  //   margin-left: $size-lg;
+  //   padding: $size-xl;
+  // }
 
   img {
     position: absolute;
   }
 
   .bg_elipse_sm {
-    top: 6rem;
-    right: 10rem;
     width: 12rem;
-    animation: spin-left infinite 42s linear;
+    top: 4rem;
+    left: 20rem;
+    animation: spin-left infinite 50s linear;
+
+    @include respond(tablet) {
+      left: 24rem;
+    }
   }
 
   .bg_elipse_lg {
-    bottom: 34rem;
-    left: -4rem;
-    width: 28rem;
-    animation: spin-right infinite 45s linear;
+    width: 26rem;
+    bottom: 26rem;
+    left: -8rem;
+    animation: spin-right infinite 60s linear;
+
+    @include respond(tablet) {
+      width: 30rem;
+      bottom: 20rem;
+    }
   }
 
   .bg_img_1 {
     max-width: 60rem;
     bottom: 0;
     left: 0;
+
+    @include respond(tablet) {
+      left: revert;
+      right: 0;
+    }
   }
 
   .bg_img_2 {
     max-width: 51rem;
     bottom: 0;
     left: 8rem;
+
+    @include respond(tablet) {
+      left: revert;
+      right: 0;
+    }
   }
 }
 
@@ -62,6 +91,10 @@
   margin-top: $size-xl;
   position: relative;
   z-index: 2;
+
+  @include respond(tablet) {
+    width: 85%;
+  }
 
   h4 {
     margin-bottom: $size-md;

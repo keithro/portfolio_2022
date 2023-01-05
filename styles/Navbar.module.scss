@@ -34,4 +34,13 @@
 }
 
 .menu {
+  margin: auto 0;
+}
+
+.link {
+  margin-right: 2.8rem;
+
+  &:last-of-type {
+    margin-right: 0;
+  }
 }

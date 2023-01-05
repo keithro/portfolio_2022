@@ -38,7 +38,7 @@ const Contact = () => {
             <span></span>
             <p>
               Have questions, comments or want to hire me? Just send me a
-              message and lets chat!
+              message and let&#39;s chat!
             </p>
           </div>
 
@@ -50,8 +50,8 @@ const Contact = () => {
             <div className={styles.successMessage}>
               <h2>Thank You!</h2>
               <p>
-                Your message was submitted successfully. I&#39;ll be in touch
-                shortly.
+                Your message was sent successfully. I&#39;ll be in touch
+                shortly!
               </p>
             </div>
           )}
