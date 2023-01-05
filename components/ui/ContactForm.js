@@ -3,7 +3,7 @@ import MailIcon from "../icons/MailIcon";
 import ReCAPTCHA from "react-google-recaptcha";
 import styles from "./../../styles/ui/ContactForm.module.scss";
 
-const ContactForm = () => {
+const ContactForm = ({ setSuccessfullySent }) => {
   const recaptchaRef = useRef();
   const [submitting, setSubmitting] = useState(false);
   const [serverErrors, setServerErrors] = useState([]);
@@ -40,6 +40,8 @@ const ContactForm = () => {
         setServerErrors(data.errors);
       } else {
         console.log("Successfully sent!");
+        console.log(data);
+        setSuccessfullySent(true);
       }
 
       // TODO: SET SUCCESS STATE/MESSAGE

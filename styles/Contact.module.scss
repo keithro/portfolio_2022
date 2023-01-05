@@ -71,4 +71,16 @@
       }
     }
   }
+
+  .successMessage {
+    background-color: rgba($color-white, 0.25);
+    border-radius: $size-sm;
+    padding: $size-xl;
+    margin-bottom: $size-xl;
+
+    h2 {
+      margin-bottom: $size-md;
+      color: $color-aqua;
+    }
+  }
 }
