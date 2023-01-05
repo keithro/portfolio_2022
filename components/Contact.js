@@ -50,7 +50,7 @@ const Contact = () => {
             <div className={styles.successMessage}>
               <h2>Thank You!</h2>
               <p>
-                Your message was submitted successfully. I'll be in touch
+                Your message was submitted successfully. I&#39;ll be in touch
                 shortly.
               </p>
             </div>
