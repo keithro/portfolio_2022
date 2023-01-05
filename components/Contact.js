@@ -4,7 +4,7 @@ import SocialLinks from "./ui/SocialLinks";
 import styles from "../styles/Contact.module.scss";
 
 const Contact = () => {
-  const [isSuccess, setIsSuccess] = useState(false);
+  const [successfullySent, setSuccessfullySent] = useState(false);
 
   return (
     <section id="contact" className={styles.section}>
@@ -32,27 +32,31 @@ const Contact = () => {
 
       <div className={styles.content}>
         {/* CONTACT FORM */}
-        {isSuccess || (
-          <div className={styles.container}>
-            <div className={styles.text}>
-              <h2>Contact</h2>
-              <span></span>
+        <div className={styles.container}>
+          <div className={styles.text}>
+            <h2>Contact</h2>
+            <span></span>
+            <p>
+              Have questions, comments or want to hire me? Just send me a
+              message and lets chat!
+            </p>
+          </div>
+
+          {successfullySent || (
+            <ContactForm setSuccessfullySent={setSuccessfullySent} />
+          )}
+
+          {successfullySent && (
+            <div className={styles.successMessage}>
+              <h2>Thank You!</h2>
               <p>
-                Have questions, comments or want to hire me? Just send me a
-                message and lets chat!
+                Your message was submitted successfully. I'll be in touch
+                shortly.
               </p>
             </div>
-            <ContactForm />
-            <SocialLinks />
-          </div>
-        )}
-        {/* SUCCESS MESSAGE */}
-        {isSuccess && (
-          <div>
-            <h2>Thank You!</h2>
-          </div>
-        )}
-        {/* ERROR MESSAGE */}
+          )}
+          <SocialLinks />
+        </div>
       </div>
     </section>
   );
