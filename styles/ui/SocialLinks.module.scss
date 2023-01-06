@@ -1,18 +1,8 @@
 @import "./../variables";
 @import "./../mixins";
 
-// .social {
-//   display: none;
-
-//   @include respond(tablet) {
-//     display: flex;
-//   }
-// }
-
 .social {
   text-align: center;
-  // display: flex;
-  margin: 0 auto;
 
   a {
     margin-right: $size-lg;

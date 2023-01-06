@@ -1,11 +1,18 @@
 @import "variables";
+@import "mixins";
 
 .section {
   background-color: $color-purple;
 
   .container {
-    height: 95vh;
+    height: 95vh; // DELETE: Remove after you add projects
     color: $color-black;
     background-color: $color-white;
+
+    @include respond(tablet) {
+      margin-right: $size-lg;
+      border-top-right-radius: $size-xl;
+      border-bottom-right-radius: $size-xl;
+    }
   }
 }

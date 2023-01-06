@@ -22,8 +22,9 @@ const Navbar = () => {
 
         {/* <SocialLinks /> */}
 
+        {/* TODO: Hamburger menu on mobile or no menu? Will need containing element and X to close menu */}
         <div className={styles.menu}>
-          <span className={styles.hamburger}>&nbsp;</span>
+          {/* <span className={styles.hamburger}>&nbsp;</span> */}
           <nav className={styles.list}>
             <Link href="#home">
               <a className={styles.link}>Home</a>

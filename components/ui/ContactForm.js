@@ -49,7 +49,7 @@ const ContactForm = ({ setSuccessfullySent }) => {
     } catch (error) {
       console.log(error);
       // TODO: handle validation error
-      // setServerErrors(error);
+      setServerErrors([error]);
     }
   }
 
