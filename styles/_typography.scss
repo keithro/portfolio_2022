@@ -20,6 +20,10 @@ h1 {
   @include respond(tablet) {
     font-size: 6.4rem;
   }
+
+  @include respond(desktop) {
+    font-size: 7.6rem;
+  }
 }
 
 h2 {

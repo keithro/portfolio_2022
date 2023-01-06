@@ -40,6 +40,10 @@
     @include respond(tablet) {
       font-size: 2.4rem;
     }
+
+    @include respond(desktop) {
+      font-size: 2.8rem;
+    }
   }
 }
 
@@ -47,12 +51,17 @@
   margin-top: $size-xs;
   display: flex;
   flex-direction: column;
+  gap: $size-md;
+
+  @include respond(desktop) {
+    flex-direction: row;
+    gap: $size-lg;
+  }
 
   a {
     font-size: 1.8rem;
     font-weight: bold;
     // padding: $size-sm $size-lg;
-    margin-bottom: $size-md;
     border-radius: $size-xs;
     height: 5.8rem;
     width: 22rem;
@@ -80,30 +89,36 @@
   }
 }
 
-.bg_img_1 {
-  max-width: 130rem;
+.bg_img {
+  width: 200%;
   position: absolute;
-  bottom: -6rem;
-  left: -10%;
+  left: 0;
+  top: 100%;
 
-  // z-index: 0;
+  @include respond(tablet) {
+    width: 100%;
+  }
+}
+
+.bg_img_1 {
+  transform: translateY(-120%);
+
+  @include respond(desktop) {
+    transform: translateY(-110%);
+  }
 }
 
 .bg_img_2 {
-  max-width: 105rem;
-  position: absolute;
-  bottom: -13rem;
-  left: 0;
-  right: 0;
+  transform: translateY(-85%);
 
-  // z-index: 0;
+  @include respond(desktop) {
+    transform: translateY(-80%);
+  }
 }
 
 .bg_img_3 {
-  max-width: 100rem;
-  position: absolute;
-  bottom: -27rem;
-  left: 0;
+  transform: translateY(-45%);
 
-  // z-index: 0;
+  @include respond(desktop) {
+  }
 }

@@ -18,10 +18,13 @@
     padding: $size-xl;
   }
 
-  // @include respond(tablet) {
-  //   margin-left: $size-lg;
-  //   padding: $size-xl;
-  // }
+  @include respond(desktop) {
+    padding: $size-xl 9rem;
+  }
+
+  @include respond(large-screen) {
+    padding: $size-xl 12rem;
+  }
 
   img {
     position: absolute;
@@ -36,6 +39,16 @@
     @include respond(tablet) {
       left: 24rem;
     }
+
+    @include respond(desktop) {
+      left: 4rem;
+      top: 6rem;
+    }
+
+    @include respond(large-screen) {
+      left: 4rem;
+      top: 6rem;
+    }
   }
 
   .bg_elipse_lg {
@@ -47,6 +60,17 @@
     @include respond(tablet) {
       width: 30rem;
       bottom: 20rem;
+    }
+
+    @include respond(desktop) {
+      left: 14rem;
+      top: 56rem;
+      bottom: revert;
+    }
+
+    @include respond(large-screen) {
+      left: 26rem;
+      // top: 56rem;
     }
   }
 
@@ -73,6 +97,18 @@
   }
 }
 
+.content {
+  margin-bottom: 40rem;
+
+  @include respond(desktop) {
+    margin-bottom: 25rem;
+  }
+
+  @include respond(large-screen) {
+    margin-bottom: 20rem;
+  }
+}
+
 .story {
   margin-top: $size-xl;
   position: relative;
@@ -96,6 +132,10 @@
     width: 85%;
   }
 
+  @include respond(desktop) {
+    width: 60%;
+  }
+
   h4 {
     margin-bottom: $size-md;
 
@@ -109,7 +149,6 @@
   }
 
   ul {
-    margin-bottom: 40rem;
     columns: 2;
     list-style: none;
     // list-style-position: inside;

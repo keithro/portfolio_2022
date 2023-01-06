@@ -9,17 +9,17 @@ const Hero = () => {
   return (
     <section id="home" className={styles.section}>
       <img
-        className={styles.bg_img_1}
+        className={`${styles.bg_img} ${styles.bg_img_1}`}
         src="/bg-hero-layer-1.svg"
         alt="Background Layer 1"
       />
       <img
-        className={styles.bg_img_2}
+        className={`${styles.bg_img} ${styles.bg_img_2}`}
         src="/bg-hero-layer-2.svg"
         alt="Background Layer 2"
       />
       <img
-        className={styles.bg_img_3}
+        className={`${styles.bg_img} ${styles.bg_img_3}`}
         src="/bg-hero-layer-3.svg"
         alt="Background Layer 3"
       />

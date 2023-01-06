@@ -15,7 +15,7 @@ const TechDetails = () => {
         <li>MongoDB</li>
         <li>Git/GitHub</li>
         <li>Python</li>
-        <li>PostgreSQL</li>
+        {/* <li>PostgreSQL</li> */}
       </ul>
     </>
   );

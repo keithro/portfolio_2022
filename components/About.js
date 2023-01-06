@@ -16,7 +16,7 @@ const About = () => {
         <div className={styles.content}>
           <main className={styles.story}>
             <h2>My Story</h2>
-            <p>
+            {/* <p>
               Hi! I&#39;m a former accountant and I recently completed General
               Assembly&#39;s Software Engineering Immersive program where I
               learned to fundamentals of software engineering, I learned
@@ -26,9 +26,21 @@ const About = () => {
               time career. So I&#39;m looking for a role in company that cares
               about my growth and where I can continue learning and find
               mentorship.
-            </p>
+            </p> */}
             {/* FIXME: Update wording and all something similar to below */}
-            {/* <p> Building Single-Page-Apps (SPA) using Next.js. Building responsive full-stack websites using React.js. Building RESTful APIs using Node.js</p> */}
+            <p>
+              I&#39;m a Software Developer. I build Single-Page-Apps
+              &#40;SPA&#41;, responsive full-stack websites and RESTful APIs. I
+              am always learning new technologies and frameworks and am always
+              working on some sort of project. Currently, I am creating a web
+              app for organizing Pickleball games.
+            </p>
+            <p>
+              In a former life I was an accountant before I decided to turn my
+              coding hobby into a full-time career. Now I am looking forward to
+              continuing my learning journey and continuing to make bigger and
+              better things.
+            </p>
           </main>
           <aside className={styles.details}>
             <h4>
