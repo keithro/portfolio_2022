@@ -32,7 +32,7 @@ html {
 body {
   box-sizing: border-box;
   font-size: 1.6rem;
-  // TODO: DELETE ME
+  // DELETE:
   // font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   color: $color-white;
   background-color: $color-light-blue;
@@ -45,7 +45,11 @@ body {
 }
 
 p {
-  line-height: 2.2rem;
+  line-height: 2.4rem;
+
+  @include respond(desktop) {
+    line-height: 2.6rem;
+  }
 }
 
 a {

@@ -1,46 +1,111 @@
 @import "variables";
 @import "animations";
+@import "mixins";
 
 .container {
   color: $color-black;
   background-color: $color-gray-light;
   padding: $size-lg;
+  margin-left: $size-sm;
   border-top-left-radius: $size-xl;
-  border-top-right-radius: $size-xl;
+  // border-top-right-radius: $size-xl;
 
   position: relative;
   overflow: hidden;
 
-  // margin-left: $size-lg;
+  @include respond(tablet) {
+    margin-left: $size-lg;
+    padding: $size-xl;
+  }
+
+  @include respond(desktop) {
+    padding: $size-xl 9rem;
+  }
+
+  @include respond(large-screen) {
+    padding: $size-xl 12rem;
+  }
 
   img {
     position: absolute;
   }
 
   .bg_elipse_sm {
-    top: 6rem;
-    right: 10rem;
     width: 12rem;
-    animation: spin-left infinite 42s linear;
+    top: 4rem;
+    left: 20rem;
+    animation: spin-left infinite 50s linear;
+
+    @include respond(tablet) {
+      left: 24rem;
+    }
+
+    @include respond(desktop) {
+      left: 4rem;
+      top: 6rem;
+    }
+
+    @include respond(large-screen) {
+      left: 4rem;
+      top: 6rem;
+    }
   }
 
   .bg_elipse_lg {
-    bottom: 34rem;
-    left: -4rem;
-    width: 28rem;
-    animation: spin-right infinite 45s linear;
+    width: 26rem;
+    bottom: 26rem;
+    left: -8rem;
+    animation: spin-right infinite 60s linear;
+
+    @include respond(tablet) {
+      width: 30rem;
+      bottom: 20rem;
+    }
+
+    @include respond(desktop) {
+      left: 14rem;
+      top: 56rem;
+      bottom: revert;
+    }
+
+    @include respond(large-screen) {
+      left: 26rem;
+      // top: 56rem;
+    }
   }
 
   .bg_img_1 {
     max-width: 60rem;
     bottom: 0;
     left: 0;
+
+    @include respond(tablet) {
+      left: revert;
+      right: 0;
+    }
   }
 
   .bg_img_2 {
     max-width: 51rem;
     bottom: 0;
     left: 8rem;
+
+    @include respond(tablet) {
+      left: revert;
+      right: 0;
+    }
+  }
+}
+
+.content {
+  margin-bottom: 40rem;
+
+  @include respond(desktop) {
+    margin-bottom: 25rem;
+  }
+
+  @include respond(large-screen) {
+    margin-bottom: 20rem;
   }
 }
 
@@ -63,6 +128,14 @@
   position: relative;
   z-index: 2;
 
+  @include respond(tablet) {
+    width: 85%;
+  }
+
+  @include respond(desktop) {
+    width: 60%;
+  }
+
   h4 {
     margin-bottom: $size-md;
 
@@ -76,7 +149,6 @@
   }
 
   ul {
-    margin-bottom: 40rem;
     columns: 2;
     list-style: none;
     // list-style-position: inside;

@@ -10,12 +10,12 @@ const TechDetails = () => {
         <li>Sass</li>
         <li>JavaScript</li>
         <li>React</li>
-        <li>Next.js</li>
+        <li>TypeScript</li>
         <li>Node.js</li>
         <li>MongoDB</li>
         <li>Git/GitHub</li>
         <li>Python</li>
-        <li>PostgreSQL</li>
+        {/* <li>PostgreSQL</li> */}
       </ul>
     </>
   );
