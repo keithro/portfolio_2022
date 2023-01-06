@@ -9,17 +9,6 @@ const Contact = () => {
   return (
     <section id="contact" className={styles.section}>
       <img
-        className={styles.bg_elipse_sm}
-        src="/bg-contact-elipse-sm.svg"
-        alt="Background Elipse"
-      />
-      <img
-        className={styles.bg_elipse_lg}
-        src="/bg-contact-elipse-lg.svg"
-        alt="Background Elipse"
-      />
-
-      <img
         className={styles.bg_img_1}
         src="/bg-contact-layer-1.svg"
         alt="Background Layer 1"
@@ -30,9 +19,19 @@ const Contact = () => {
         alt="Background Layer 2"
       />
 
-      <div className={styles.content}>
-        {/* CONTACT FORM */}
-        <div className={styles.container}>
+      <img
+        className={styles.bg_elipse_sm}
+        src="/bg-contact-elipse-sm.svg"
+        alt="Background Elipse"
+      />
+      <img
+        className={styles.bg_elipse_lg}
+        src="/bg-contact-elipse-lg.svg"
+        alt="Background Elipse"
+      />
+
+      <div className={styles.container}>
+        <div className={styles.content}>
           <div className={styles.text}>
             <h2>Contact</h2>
             <span></span>
@@ -55,7 +54,10 @@ const Contact = () => {
               </p>
             </div>
           )}
-          <SocialLinks />
+
+          <div className={styles.socialLinksContainer}>
+            <SocialLinks />
+          </div>
         </div>
       </div>
     </section>

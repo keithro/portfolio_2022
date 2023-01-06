@@ -1,4 +1,5 @@
 @import "./../variables";
+@import "./../mixins";
 
 .form {
   // display: flex;
@@ -6,9 +7,21 @@
   // align-items: stretch;
   margin-bottom: $size-xl;
 
+  @include respond(desktop) {
+    margin-bottom: 0;
+  }
+
   label {
     display: block;
     margin: 0.6rem 0 0.3rem 0.8rem;
+
+    @include respond(tablet) {
+      margin: 0.8rem 0 0.6rem 0.8rem;
+    }
+
+    @include respond(desktop) {
+      margin: 1rem 0 0.6rem 0.8rem;
+    }
   }
 
   input,
@@ -42,6 +55,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @include respond(desktop) {
+      margin-right: 0;
+    }
 
     svg {
       margin-left: $size-xs;

@@ -46,6 +46,10 @@ body {
 
 p {
   line-height: 2.4rem;
+
+  @include respond(desktop) {
+    line-height: 2.6rem;
+  }
 }
 
 a {

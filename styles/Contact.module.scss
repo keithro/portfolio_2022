@@ -16,6 +16,17 @@
     right: -4rem;
     width: 14rem;
     animation: spin-left infinite 60s linear;
+
+    @include respond(tablet) {
+      top: 34rem;
+      right: -4rem;
+    }
+
+    @include respond(desktop) {
+      top: 44rem;
+      left: 25%;
+      right: revert;
+    }
   }
 
   .bg_elipse_lg {
@@ -23,23 +34,30 @@
     left: -8rem;
     width: 28rem;
     animation: spin-right infinite 70s linear;
+
+    @include respond(desktop) {
+      top: 20rem;
+      bottom: revert;
+      left: revert;
+      right: 5rem;
+    }
   }
 
   .bg_img_1 {
     // max-width: 60rem;
-    max-width: 100%;
+    // max-width: 100%;
     top: 0;
     left: 0;
   }
 
   .bg_img_2 {
     // max-width: 51rem;
-    max-width: 90%;
+    // max-width: 100%;
     top: 0;
     left: 0;
   }
 
-  .content {
+  .container {
     padding: $size-md;
     margin-top: 34rem;
     position: relative;
@@ -48,13 +66,56 @@
       padding: $size-xl;
     }
 
-    .container {
+    @include respond(desktop) {
+      width: 80%;
+      padding: 0;
+      margin: 32rem auto 10rem auto;
+    }
+
+    @include respond(large-screen) {
+      margin: 28rem auto 8rem auto;
+    }
+
+    .content {
+      @include respond(desktop) {
+        display: grid;
+        gap: 4rem;
+        grid-template-rows: auto 1fr;
+        // grid-template-rows: 1fr 1fr;
+        grid-template-columns: auto 50rem;
+      }
+
+      & > *:nth-child(1) {
+        @include respond(desktop) {
+          grid-column: 1 / 2;
+          grid-row: 1 / 2;
+        }
+      }
+
+      & > *:nth-child(2) {
+        @include respond(desktop) {
+          grid-column: 2 / 3;
+          grid-row: 1 / 3;
+        }
+      }
+
+      & > *:nth-child(3) {
+        @include respond(desktop) {
+          grid-column: 1 / 2;
+          grid-row: 2 / 3;
+        }
+      }
+
       .text {
         padding: $size-sm;
         text-align: right;
         display: flex;
         flex-direction: column;
         align-items: flex-end;
+
+        @include respond(desktop) {
+          padding: 0;
+        }
 
         h2 {
           position: relative;
@@ -74,6 +135,15 @@
           margin-bottom: $size-md;
         }
       }
+    }
+  }
+
+  .socialLinksContainer {
+    display: flex;
+    justify-content: center;
+
+    @include respond(desktop) {
+      justify-content: end;
     }
   }
 
