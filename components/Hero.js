@@ -32,15 +32,26 @@ const Hero = () => {
         <h2>Hello! I&#8217;m Keith</h2>
         <div className={styles.buttons}>
           <Link href="#contact">
-            <a className={styles.contact}>
+            <a className={styles.contactButton}>
               Contact Me <MailIcon />
             </a>
           </Link>
           <Link href="#projects">
-            <a className={styles.projects}>
+            <a className={styles.projectsButton}>
               My Portfolio <ArrowIcon />
             </a>
           </Link>
+
+          {/* <Link href="#contact">
+            <a className={`${styles.button} ${styles.contactButton}`}>
+              Contact Me <MailIcon />
+            </a>
+          </Link>
+          <Link href="#projects">
+            <a className={`${styles.button} ${styles.projectsButton}`}>
+              My Portfolio <ArrowIcon />
+            </a>
+          </Link> */}
         </div>
       </div>
     </section>

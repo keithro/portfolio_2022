@@ -2,6 +2,7 @@ import { useState } from "react";
 import ContactForm from "./ui/ContactForm";
 import SocialLinks from "./ui/SocialLinks";
 import styles from "../styles/Contact.module.scss";
+import Loader from "./Loader";
 
 const Contact = () => {
   const [successfullySent, setSuccessfullySent] = useState(false);
