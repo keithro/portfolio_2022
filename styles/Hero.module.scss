@@ -97,36 +97,152 @@
   }
 }
 
-.bg_img {
-  width: 200%;
+.bg_img_1,
+.bg_img_2,
+.bg_img_3 {
+  width: 150vw;
   position: absolute;
   left: 0;
-  top: 100%;
-
+  bottom: 0;
+  transform: translateY(50%);
+  // top: 100%;
+  // transform: translateY(-50%);
   @include respond(tablet) {
-    width: 100%;
+    width: 100vw;
   }
 }
 
 .bg_img_1 {
-  transform: translateY(-120%);
+  bottom: 26rem;
 
-  @include respond(desktop) {
-    transform: translateY(-110%);
+  @include respond(large-screen) {
+    bottom: 28rem;
   }
 }
 
 .bg_img_2 {
-  transform: translateY(-85%);
-
-  @include respond(desktop) {
-    transform: translateY(-80%);
-  }
+  bottom: 14rem;
 }
 
 .bg_img_3 {
-  transform: translateY(-45%);
+  bottom: 0rem;
 
   @include respond(desktop) {
+    bottom: -1rem;
+  }
+  @include respond(large-screen) {
+    bottom: -2rem;
+  }
+}
+
+// ==========================================
+// PREVIOUS BACKGROUND IMAGE STYLING
+// ..........................................
+
+// .bg_img {
+//   width: 200%;
+//   position: absolute;
+//   left: 0;
+//   top: 100%;
+
+//   @include respond(tablet) {
+//     width: 100%;
+//   }
+// }
+
+// .bg_img_1 {
+//   transform: translateY(-120%);
+
+//   @include respond(desktop) {
+//     transform: translateY(-110%);
+//   }
+// }
+
+// .bg_img_2 {
+//   transform: translateY(-85%);
+
+//   @include respond(desktop) {
+//     transform: translateY(-80%);
+//   }
+// }
+
+// .bg_img_3 {
+//   transform: translateY(-45%);
+
+//   @include respond(desktop) {
+//   }
+// }
+
+// ..........................................
+// ==========================================
+
+.cross_mark_1,
+.cross_mark_2,
+.cross_mark_3,
+.cross_mark_4 {
+  position: absolute;
+  width: 2rem;
+
+  @include respond(tablet) {
+    width: 3rem;
+  }
+
+  @include respond(desktop) {
+    width: 4rem;
+  }
+}
+
+.cross_mark_1 {
+  top: 13%;
+  left: 18%;
+  transform: rotate(45deg);
+
+  @include respond(desktop) {
+    top: 18%;
+    left: 6%;
+  }
+}
+
+.cross_mark_2 {
+  top: 20%;
+  right: 26%;
+
+  @include respond(desktop) {
+    top: 27%;
+    right: 8%;
+  }
+}
+
+.cross_mark_3 {
+  top: 86%;
+  right: 78%;
+
+  @include respond(tablet) {
+    top: 68%;
+    right: 78%;
+    // transform: rotate(45deg);
+  }
+
+  @include respond(desktop) {
+    top: 42%;
+    right: 22%;
+    transform: rotate(45deg);
+  }
+}
+
+.cross_mark_4 {
+  top: 50%;
+  right: 20%;
+  transform: rotate(45deg);
+
+  @include respond(desktop) {
+    top: 53%;
+    right: 54%;
+    transform: rotate(0deg);
+  }
+
+  @include respond(large-screen) {
+    top: 88%;
+    right: 74%;
   }
 }
