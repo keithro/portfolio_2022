@@ -1,6 +1,10 @@
 import { useState } from "react";
 import TechDetails from "./TechDetails";
 import InterestDetails from "./InterestDetails";
+import AboutImage1 from "./graphics/AboutImage1";
+import AboutImage2 from "./graphics/AboutImage2";
+import ElipseSmall from "./graphics/ElipseSmall";
+import ElipseLarge from "./graphics/ElipseLarge";
 import styles from "./../styles/About.module.scss";
 
 const About = () => {
@@ -62,27 +66,12 @@ const About = () => {
             {details === "tech" ? <TechDetails /> : <InterestDetails />}
           </aside>
         </div>
-        <img
-          className={styles.bg_elipse_sm}
-          src="/bg-about-elipse-sm.svg"
-          alt="Background Elipse"
-        />
-        <img
-          className={styles.bg_elipse_lg}
-          src="/bg-about-elipse-lg.svg"
-          alt="Background Elipse"
-        />
 
-        <img
-          className={styles.bg_img_1}
-          src="/bg-about-layer-1.svg"
-          alt="Background Layer 1"
-        />
-        <img
-          className={styles.bg_img_2}
-          src="/bg-about-layer-2.svg"
-          alt="Background Layer 2"
-        />
+        <ElipseSmall className={styles.bg_elipse_sm} stroke={styles.colorRed} />
+        <ElipseLarge className={styles.bg_elipse_lg} stroke={styles.colorRed} />
+
+        <AboutImage1 className={styles.bg_img_1} />
+        <AboutImage2 className={styles.bg_img_2} />
       </div>
     </section>
   );

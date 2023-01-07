@@ -12,22 +12,6 @@ import styles from "./../styles/Hero.module.scss";
 const Hero = () => {
   return (
     <section id="home" className={styles.section}>
-      {/* <img
-        className={`${styles.bg_img} ${styles.bg_img_1}`}
-        src="/bg-hero-layer-1.svg"
-        alt="Background Layer 1"
-      />
-      <img
-        className={`${styles.bg_img} ${styles.bg_img_2}`}
-        src="/bg-hero-layer-2.svg"
-        alt="Background Layer 2"
-      />
-      <img
-        className={`${styles.bg_img} ${styles.bg_img_3}`}
-        src="/bg-hero-layer-3.svg"
-        alt="Background Layer 3"
-      /> */}
-
       <HeroImage1 className={styles.bg_img_1} />
       <HeroImage2 className={styles.bg_img_2} />
       <HeroImage3 className={styles.bg_img_3} />
@@ -54,17 +38,6 @@ const Hero = () => {
               My Portfolio <ArrowIcon />
             </a>
           </Link>
-
-          {/* <Link href="#contact">
-            <a className={`${styles.button} ${styles.contactButton}`}>
-              Contact Me <MailIcon />
-            </a>
-          </Link>
-          <Link href="#projects">
-            <a className={`${styles.button} ${styles.projectsButton}`}>
-              My Portfolio <ArrowIcon />
-            </a>
-          </Link> */}
         </div>
       </div>
     </section>
