@@ -1,0 +1,105 @@
+@import "variables";
+@import "mixins";
+
+.project {
+  margin-bottom: $size-xl;
+  display: flex;
+  flex-direction: column;
+  gap: $size-lg;
+
+  @include respond(desktop) {
+    margin-bottom: 10rem;
+    flex-direction: row;
+    gap: $size-xl;
+  }
+}
+
+.project:nth-of-type(even) > .image_pane {
+  @include respond(desktop) {
+    order: 2;
+  }
+}
+
+.project:nth-of-type(even) > .content_pane {
+  @include respond(desktop) {
+    order: 1;
+  }
+}
+
+.image_pane,
+.content_pane {
+  position: relative;
+  flex: 50% 1 1; // BUG: Is this why they are not sized even? or are they?
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border: solid 1px purple;
+}
+
+.images {
+  border: solid 1px hotpink;
+  height: 24rem;
+  width: 32rem;
+}
+
+.content {
+  border: solid 1px hotpink;
+  max-width: 45rem;
+
+  h3 {
+    margin: $size-md 0;
+  }
+
+  p {
+    margin-bottom: $size-md;
+  }
+}
+
+.buttons {
+  display: flex;
+  gap: $size-md;
+  justify-content: center;
+
+  @include respond(desktop) {
+    justify-content: flex-start;
+  }
+}
+
+.live_button,
+.github_button {
+  font-weight: bold;
+  color: $color-white;
+  border-radius: $size-xs;
+  height: 3.8rem;
+  width: 14rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: $size-xs;
+
+  svg {
+    width: 2rem;
+    height: 2rem;
+  }
+}
+
+.live_button {
+  background-color: $color-purple;
+}
+
+.github_button {
+  background-color: $color-black;
+}
+.bg_img_left,
+.bg_img_right,
+.cross_mark_1,
+.cross_mark_2 {
+  position: absolute;
+}
+
+.bg_img_left,
+.bg_img_right {
+  width: 100%;
+}

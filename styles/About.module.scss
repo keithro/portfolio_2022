@@ -20,6 +20,7 @@
 
   @include respond(desktop) {
     padding: $size-xl 9rem;
+    border-top-left-radius: 10rem;
   }
 
   @include respond(large-screen) {
@@ -40,7 +41,6 @@
 }
 
 .story {
-  margin-top: $size-xl;
   position: relative;
   z-index: 2;
 
@@ -49,7 +49,7 @@
   }
 
   h2 {
-    margin-bottom: $size-md;
+    margin: $size-xl 0 $size-md 0;
   }
 
   p {

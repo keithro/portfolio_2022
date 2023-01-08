@@ -13,7 +13,6 @@ const ElipseLarge = (props) => {
         cy={137}
         r={136}
         stroke={props.stroke}
-        // stroke="#FF2156"
         strokeWidth={2}
         strokeDasharray="4 4"
       />

@@ -3,16 +3,40 @@
 
 .section {
   background-color: $color-purple;
+}
 
-  .container {
-    height: 95vh; // DELETE: Remove after you add projects
-    color: $color-black;
-    background-color: $color-white;
+.container {
+  // height: 95vh; // DELETE: Remove after you add projects
+  color: $color-black;
+  background-color: $color-white;
+  padding: $size-lg;
+  position: relative;
+  overflow: hidden;
 
-    @include respond(tablet) {
-      margin-right: $size-lg;
-      border-top-right-radius: $size-xl;
-      border-bottom-right-radius: $size-xl;
-    }
+  @include respond(tablet) {
+    margin-right: $size-lg;
+    padding: $size-xl;
+    border-top-right-radius: $size-xl;
+    border-bottom-right-radius: $size-xl;
+  }
+
+  @include respond(desktop) {
+    padding: $size-xl 9rem;
+    border-top-right-radius: 10rem;
+    border-bottom-right-radius: 10rem;
+  }
+
+  @include respond(large-screen) {
+    padding: $size-xl 12rem;
+  }
+}
+
+.content {
+  h2 {
+    margin: $size-xl 0 $size-md 0;
+  }
+
+  p {
+    margin-bottom: $size-md;
   }
 }
