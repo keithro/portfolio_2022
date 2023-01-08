@@ -22,7 +22,7 @@ const ContactForm = ({ setSuccessfullySent }) => {
 
     try {
       const token = await recaptchaRef.current.executeAsync();
-      console.log("Your token: ", token); // DELETE
+      // console.log("Your token: ", token); // DELETE
       recaptchaRef.current.reset();
       formData.token = token;
 
@@ -44,11 +44,9 @@ const ContactForm = ({ setSuccessfullySent }) => {
         setSuccessfullySent(true);
       }
 
-      // TODO: SET SUCCESS STATE/MESSAGE
       setSubmitting(false);
     } catch (error) {
       console.log(error);
-      // TODO: handle validation error
       setServerErrors([error]);
     }
   }
