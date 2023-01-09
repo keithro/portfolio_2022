@@ -1,6 +1,10 @@
 import { useState } from "react";
 import TechDetails from "./TechDetails";
 import InterestDetails from "./InterestDetails";
+import AboutImage1 from "./graphics/AboutImage1";
+import AboutImage2 from "./graphics/AboutImage2";
+import ElipseSmall from "./graphics/ElipseSmall";
+import ElipseLarge from "./graphics/ElipseLarge";
 import styles from "./../styles/About.module.scss";
 
 const About = () => {
@@ -16,18 +20,6 @@ const About = () => {
         <div className={styles.content}>
           <main className={styles.story}>
             <h2>My Story</h2>
-            {/* <p>
-              Hi! I&#39;m a former accountant and I recently completed General
-              Assembly&#39;s Software Engineering Immersive program where I
-              learned to fundamentals of software engineering, I learned
-              multiple frameworks and languages within a twelve week period and
-              built several projects. Previously I was a hobby programmer while
-              working as an accountant before I decided to make this my full
-              time career. So I&#39;m looking for a role in company that cares
-              about my growth and where I can continue learning and find
-              mentorship.
-            </p> */}
-            {/* FIXME: Update wording and all something similar to below */}
             <p>
               I&#39;m a Software Developer. I build Single-Page-Apps
               &#40;SPA&#41;, responsive full-stack websites and RESTful APIs. I
@@ -62,27 +54,12 @@ const About = () => {
             {details === "tech" ? <TechDetails /> : <InterestDetails />}
           </aside>
         </div>
-        <img
-          className={styles.bg_elipse_sm}
-          src="/bg-about-elipse-sm.svg"
-          alt="Background Elipse"
-        />
-        <img
-          className={styles.bg_elipse_lg}
-          src="/bg-about-elipse-lg.svg"
-          alt="Background Elipse"
-        />
 
-        <img
-          className={styles.bg_img_1}
-          src="/bg-about-layer-1.svg"
-          alt="Background Layer 1"
-        />
-        <img
-          className={styles.bg_img_2}
-          src="/bg-about-layer-2.svg"
-          alt="Background Layer 2"
-        />
+        <ElipseSmall className={styles.bg_elipse_sm} stroke={styles.colorRed} />
+        <ElipseLarge className={styles.bg_elipse_lg} stroke={styles.colorRed} />
+
+        <AboutImage1 className={styles.bg_img_1} />
+        <AboutImage2 className={styles.bg_img_2} />
       </div>
     </section>
   );

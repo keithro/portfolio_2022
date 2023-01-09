@@ -19,3 +19,16 @@
     }
   }
 }
+
+@mixin shadow($size, $obj: "box", $inset: "") {
+  // offset-x | offset-y | blur-radius | spread-radius | color
+  @if $size == small {
+    #{$obj}-shadow: 0px 0.5rem 1.2rem rgba(0, 0, 0, 0.25) #{$inset};
+  }
+  @if $size == medium {
+    #{$obj}-shadow: 0px 0.8rem 1.5rem rgba(0, 0, 0, 0.25) #{$inset};
+  }
+  @if $size == large {
+    #{$obj}-shadow: 0rem 1rem 2rem rgba(0, 0, 0, 0.25) #{$inset};
+  }
+}

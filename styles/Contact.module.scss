@@ -24,7 +24,7 @@
 
     @include respond(desktop) {
       top: 44rem;
-      left: 25%;
+      left: 28%;
       right: revert;
     }
   }
@@ -119,7 +119,7 @@
 
         h2 {
           position: relative;
-          margin-bottom: $size-lg;
+          margin-bottom: $size-md;
         }
 
         span {
