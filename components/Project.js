@@ -10,18 +10,28 @@ import styles from "./../styles/Project.module.scss";
 const Project = (props) => {
   // console.log("Your Props: ", props); // DELETE
 
-  let backgroundImage, imageClass, contentClass, crossMarkOne, crossMarkTwo;
+  // TODO: Clean up unused code
+  // let backgroundImage, imageClass, contentClass, crossMarkOne, crossMarkTwo;
+  let backgroundImage, crossMarkOne, crossMarkTwo;
 
   if (props.imageLeft) {
-    imageClass = styles.imageLeft;
+    // imageClass = styles.imageLeft;
     backgroundImage = <ProjectImageLeft className={styles.bg_img_left} />;
-    crossMarkOne = <CrossMark fill={styles.colorAqua} />;
-    crossMarkTwo = <CrossMark fill={styles.colorPurple} />;
+    crossMarkOne = (
+      <CrossMark className={styles.cross_mark_1} fill={styles.colorPurple} />
+    );
+    crossMarkTwo = (
+      <CrossMark className={styles.cross_mark_2} fill={styles.colorAqua} />
+    );
   } else {
-    imageClass = styles.imageRight;
+    // imageClass = styles.imageRight;
     backgroundImage = <ProjectImageRight className={styles.bg_img_right} />;
-    crossMarkTwo = <CrossMark fill={styles.colorPurple} />;
-    crossMarkOne = <CrossMark fill={styles.colorBlue} />;
+    crossMarkTwo = (
+      <CrossMark className={styles.cross_mark_1} fill={styles.colorBlue} />
+    );
+    crossMarkOne = (
+      <CrossMark className={styles.cross_mark_2} fill={styles.colorPurple} />
+    );
   }
 
   return (
@@ -30,20 +40,24 @@ const Project = (props) => {
         {/* <div className={imageClass}> */}
         {backgroundImage}
         <div className={styles.images}>
-          <Image
-            className={styles.image}
-            src={props.image1}
-            alt={props.altText1}
-            height={450}
-            width={741}
-          />
-          <Image
-            className={styles.image}
-            src={props.image2}
-            alt={props.altText2}
-            height={450}
-            width={741}
-          />
+          <div className={styles.image}>
+            <Image
+              // className={styles.image}
+              src={props.image1}
+              alt={props.altText1}
+              height={450}
+              width={741}
+            />
+          </div>
+          <div className={styles.image}>
+            <Image
+              // className={styles.image}
+              src={props.image2}
+              alt={props.altText2}
+              height={450}
+              width={741}
+            />
+          </div>
         </div>
       </div>
       <div className={styles.content_pane}>
@@ -51,16 +65,16 @@ const Project = (props) => {
           <Image
             src={props.watermark1}
             alt="Decorative watermark image"
-            height={80}
-            width={80}
+            height={500}
+            width={500}
           />
         </div>
         <div className={styles.watermark_2}>
           <Image
             src={props.watermark2}
             alt="Decorative watermark image"
-            height={80}
-            width={80}
+            height={500}
+            width={500}
           />
         </div>
 

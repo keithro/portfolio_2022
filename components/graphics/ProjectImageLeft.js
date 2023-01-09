@@ -1,8 +1,8 @@
 const ProjectImageRight = (props) => {
   return (
     <svg
-      width={808}
-      height={636}
+      // width={808}
+      // height={636}
       viewBox="0 0 808 636"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
