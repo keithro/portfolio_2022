@@ -12,11 +12,6 @@
   position: relative;
   overflow: hidden;
 
-  // TODO: Space on right edge on mobile?...or only desktop?
-  // margin-right: 1rem;
-  // border-top-right-radius: 5rem;
-  // border-bottom-right-radius: 5rem;
-
   @include respond(tablet) {
     margin-right: $size-lg;
     padding: $size-xl;
