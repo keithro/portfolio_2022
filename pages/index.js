@@ -21,7 +21,6 @@ export default function Home() {
           name="keywords"
           content="Keith Rodriguez, software engineer, front-end developer, full stack developer, back end developer"
         />
-        {/* <link rel="icon" href="/favicon.ico" /> */}
         <link rel="icon" href="/favicon.png" />
       </Head>
 
