@@ -26,16 +26,20 @@
     margin: 20rem auto 0 auto;
   }
 
-  h1 {
+  h1,
+  h2 {
     margin-bottom: $size-md;
-    text-shadow: 0px 0.5rem 1.5rem rgba(0, 0, 0, 0.25);
+    @include shadow(medium, text);
   }
+
+  // h1 {
+  //   margin-bottom: $size-md;
+  //   @include shadow(medium, text);
+  // }
 
   h2 {
     font-size: 2rem;
     font-weight: normal;
-    margin-bottom: $size-md;
-    text-shadow: 0px 0.5rem 1.5rem rgba(0, 0, 0, 0.25);
 
     @include respond(tablet) {
       font-size: 2.4rem;
@@ -57,68 +61,147 @@
     flex-direction: row;
     gap: $size-lg;
   }
+}
 
-  a {
-    font-size: 1.8rem;
-    font-weight: bold;
-    // padding: $size-sm $size-lg;
-    border-radius: $size-xs;
-    height: 5.8rem;
-    width: 22rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0px 0.5rem 1.5rem rgba(0, 0, 0, 0.25);
+// .button,
+.contactButton,
+.projectsButton {
+  font-size: 1.8rem;
+  font-weight: bold;
+  border-radius: $size-xs;
+  height: 5.8rem;
+  width: 22rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: $size-xs;
+  @include shadow(medium);
+  transition: all 300ms ease;
 
-    svg {
-      margin-left: $size-xs;
-    }
-  }
-
-  .contact {
-    background-color: $color-red;
-  }
-
-  .projects {
-    color: $color-blue;
-    background-color: $color-white;
-
-    svg {
-      height: 3rem;
-    }
+  &:hover {
+    transform: scale(1.03);
+    @include shadow(large);
   }
 }
 
-.bg_img {
-  width: 200%;
+.contactButton {
+  background-color: $color-red;
+}
+
+.projectsButton {
+  color: $color-blue;
+  background-color: $color-white;
+
+  svg {
+    height: 3rem;
+  }
+}
+
+.bg_img_1,
+.bg_img_2,
+.bg_img_3 {
+  width: 150vw;
   position: absolute;
   left: 0;
-  top: 100%;
-
+  bottom: 0;
+  transform: translateY(50%);
+  // top: 100%;
+  // transform: translateY(-50%);
   @include respond(tablet) {
-    width: 100%;
+    width: 100vw;
   }
 }
 
 .bg_img_1 {
-  transform: translateY(-120%);
+  bottom: 26rem;
 
-  @include respond(desktop) {
-    transform: translateY(-110%);
+  @include respond(large-screen) {
+    bottom: 28rem;
   }
 }
 
 .bg_img_2 {
-  transform: translateY(-85%);
-
-  @include respond(desktop) {
-    transform: translateY(-80%);
-  }
+  bottom: 14rem;
 }
 
 .bg_img_3 {
-  transform: translateY(-45%);
+  bottom: 0rem;
 
   @include respond(desktop) {
+    bottom: -1rem;
+  }
+  @include respond(large-screen) {
+    bottom: -2rem;
+  }
+}
+
+.cross_mark_1,
+.cross_mark_2,
+.cross_mark_3,
+.cross_mark_4 {
+  position: absolute;
+  width: 2rem;
+
+  @include respond(tablet) {
+    width: 3rem;
+  }
+
+  @include respond(desktop) {
+    width: 4rem;
+  }
+}
+
+.cross_mark_1 {
+  top: 13%;
+  left: 18%;
+  transform: rotate(45deg);
+
+  @include respond(desktop) {
+    top: 18%;
+    left: 6%;
+  }
+}
+
+.cross_mark_2 {
+  top: 20%;
+  right: 26%;
+
+  @include respond(desktop) {
+    top: 27%;
+    right: 8%;
+  }
+}
+
+.cross_mark_3 {
+  top: 86%;
+  right: 78%;
+
+  @include respond(tablet) {
+    top: 68%;
+    right: 78%;
+    // transform: rotate(45deg);
+  }
+
+  @include respond(desktop) {
+    top: 42%;
+    right: 22%;
+    transform: rotate(45deg);
+  }
+}
+
+.cross_mark_4 {
+  top: 50%;
+  right: 20%;
+  transform: rotate(45deg);
+
+  @include respond(desktop) {
+    top: 53%;
+    right: 54%;
+    transform: rotate(0deg);
+  }
+
+  @include respond(large-screen) {
+    top: 88%;
+    right: 74%;
   }
 }

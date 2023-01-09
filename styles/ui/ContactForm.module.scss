@@ -31,7 +31,8 @@
     width: 100%;
     border: none;
     border-radius: $size-xs;
-    box-shadow: inset 0px 5px $size-md rgba(0, 0, 0, 0.15);
+    // box-shadow: inset 0px 5px $size-md rgba(0, 0, 0, 0.15);
+    @include shadow(small, box, inset);
   }
 
   textarea {
