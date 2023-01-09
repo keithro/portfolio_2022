@@ -1,34 +1,30 @@
 import { useState } from "react";
 import ContactForm from "./ui/ContactForm";
 import SocialLinks from "./ui/SocialLinks";
-import styles from "../styles/Contact.module.scss";
 import Loader from "./Loader";
+import ContactImage1 from "./graphics/ContactImage1";
+import ContactImage2 from "./graphics/ContactImage2";
+import ElipseLarge from "./graphics/ElipseLarge";
+import ElipseSmall from "./graphics/ElipseSmall";
+import styles from "../styles/Contact.module.scss";
 
 const Contact = () => {
   const [successfullySent, setSuccessfullySent] = useState(false);
 
   return (
     <section id="contact" className={styles.section}>
-      <img
-        className={styles.bg_img_1}
-        src="/bg-contact-layer-1.svg"
-        alt="Background Layer 1"
-      />
-      <img
-        className={styles.bg_img_2}
-        src="/bg-contact-layer-2.svg"
-        alt="Background Layer 2"
-      />
+      <ContactImage1 className={styles.bg_img_1} alt="Background Layer 1" />
+      <ContactImage2 className={styles.bg_img_2} alt="Background Layer 2" />
 
-      <img
+      <ElipseSmall
         className={styles.bg_elipse_sm}
-        src="/bg-contact-elipse-sm.svg"
+        stroke={styles.colorOrange}
         alt="Background Elipse"
       />
-      <img
+      <ElipseLarge
         className={styles.bg_elipse_lg}
-        src="/bg-contact-elipse-lg.svg"
-        alt="Background Elipse"
+        stroke={styles.colorOrange}
+        alt="Background Layer 2"
       />
 
       <div className={styles.container}>

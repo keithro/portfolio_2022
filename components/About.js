@@ -48,7 +48,7 @@ const About = () => {
                 className={styles.interests}
                 onClick={handleShowDetails}
               >
-                My Other Interests
+                Other Interests
               </span>
             </h4>
             {details === "tech" ? <TechDetails /> : <InterestDetails />}
