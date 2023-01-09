@@ -10,7 +10,7 @@
 
   @include respond(desktop) {
     flex-direction: row;
-    gap: $size-xl;
+    gap: 15rem;
   }
 }
 
@@ -23,10 +23,10 @@
   justify-content: center;
   align-items: center;
 
-  border: solid 1px purple;
+  // border: solid 1px purple;
 }
 
-// EVEN PROJECTS ONLY (TEXT LEFT / IMAGE RIGHT) ////////////
+// EVEN PROJECTS ONLY (TEXT LEFT / IMAGE RIGHT)
 .project:nth-of-type(even) > .image_pane {
   @include respond(desktop) {
     order: 2;
@@ -42,6 +42,8 @@
 .bg_img_right,
 .cross_mark_1,
 .cross_mark_2,
+.dotted_line_odd,
+.dotted_line_even,
 .watermark_1,
 .watermark_2 {
   position: absolute;
@@ -50,24 +52,93 @@
 .bg_img_left,
 .bg_img_right {
   width: 130%;
+
+  @include respond(desktop) {
+    width: 140%;
+  }
 }
 
 .images {
-  border: solid 1px hotpink;
+  // border: solid 1px hotpink;
   width: 100%;
-  aspect-ratio: 3 / 2;
   z-index: 1;
 
   transform: rotate(-10deg);
+
+  @include respond(desktop) {
+    width: 120%;
+    aspect-ratio: 3 /2;
+    transform: rotate(0deg);
+    display: flex;
+  }
 }
 
-.image {
-  @include shadow(medium);
+.image_1,
+.image_2 {
+  // @include shadow(medium);
+  transition: all 500ms ease-in-out;
+
+  @include respond(desktop) {
+    position: absolute;
+    // width: 120%;
+  }
+}
+
+.image_1 {
+  @include respond(desktop) {
+    z-index: 1;
+    transform: rotate(-8deg);
+  }
+}
+
+.images:hover > .image_1 {
+  transform: translate(-4rem, -9rem) rotate(-13deg);
+}
+
+.image_1:hover {
+  z-index: 5;
+}
+
+.image_2 {
+  @include respond(desktop) {
+    transform: translate(-2.4rem, 3.2rem) rotate(-10deg);
+  }
+}
+
+.images:hover > .image_2 {
+  transform: translate(0rem, 12rem) rotate(-2deg);
+}
+
+.image_2:hover {
+  z-index: 5;
+}
+
+.project:nth-of-type(even) {
+  .image_1 {
+    @include respond(desktop) {
+      // z-index: 1;
+      transform: rotate(8deg);
+    }
+  }
+
+  .images:hover > .image_1 {
+    transform: translate(4rem, -9rem) rotate(13deg);
+  }
+
+  .image_2 {
+    @include respond(desktop) {
+      transform: translate(2.4rem, 3.2rem) rotate(10deg);
+    }
+  }
+
+  .images:hover > .image_2 {
+    transform: translate(0rem, 12rem) rotate(2deg);
+  }
 }
 
 .content {
   position: relative;
-  border: solid 1px hotpink;
+  // border: solid 1px hotpink;
   max-width: 45rem;
 
   @include respond(tablet) {
@@ -76,6 +147,16 @@
 
   h3 {
     margin: $size-xl 0 $size-md 0;
+  }
+
+  span {
+    // content: "";
+    display: block;
+    height: 0.5rem;
+    width: 5rem;
+    margin-bottom: $size-md;
+    background-color: $color-light-blue;
+    border-radius: 1rem;
   }
 
   p {
@@ -128,7 +209,28 @@
   background-color: $color-black;
 }
 
-// DECORATIVE IMAGES (CROSSMARKS & WATERMARKS) /////////
+// DECORATIVE IMAGES (CROSSMARKS & WATERMARKS) ////////////
+.dotted_line_even,
+.dotted_line_odd {
+  display: none;
+
+  @include respond(desktop) {
+    display: block;
+  }
+}
+
+.dotted_line_even {
+  width: 50%;
+  top: 15%;
+  left: -50%;
+}
+
+.dotted_line_odd {
+  width: 55%;
+  top: 10%;
+  right: -35%;
+}
+
 .watermark_1,
 .watermark_2 {
   width: 20rem;
@@ -136,6 +238,10 @@
 
   @include respond(tablet) {
     width: 30rem;
+  }
+
+  @include respond(tablet) {
+    width: 60%;
   }
 }
 
@@ -152,12 +258,22 @@
   top: 0rem;
   left: 0rem;
   transform: rotate(-8deg);
+
+  @include respond(tablet) {
+    top: 5%;
+    left: -20%;
+  }
 }
 
 .watermark_2 {
   bottom: 0rem;
   right: 0rem;
   transform: rotate(10deg);
+
+  @include respond(tablet) {
+    bottom: 15%;
+    right: -15%;
+  }
 }
 
 .cross_mark_1 {
@@ -186,14 +302,21 @@
     top: auto;
     left: 0rem;
     bottom: 0rem;
-    // transform: rotate(-5deg);
+
+    @include respond(tablet) {
+      left: -15%;
+      bottom: 10%;
+    }
   }
 
   .watermark_2 {
     top: 0rem;
     right: 0rem;
     bottom: auto;
-    // transform: rotate(5deg);
+
+    @include respond(tablet) {
+      right: -10%;
+    }
   }
 
   .cross_mark_1 {
