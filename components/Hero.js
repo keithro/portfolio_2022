@@ -17,7 +17,6 @@ const Hero = ({ setDarkNav }) => {
     const heroObserver = new IntersectionObserver(
       (entries) => {
         const entry = entries[0];
-        console.log(entry.intersectionRatio);
         setDarkNav(entry.isIntersecting);
       },
       {

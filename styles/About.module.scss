@@ -73,6 +73,16 @@
   h4 {
     margin-bottom: $size-md;
 
+    span {
+      cursor: pointer;
+      transition: all 200ms ease;
+
+      &:hover {
+        color: $color-purple;
+        // color: lighten($color: $color-black, $amount: 35);
+      }
+    }
+
     span:first-child {
       margin-right: $size-md;
     }

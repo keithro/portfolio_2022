@@ -1,17 +1,37 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+
 import TechDetails from "./TechDetails";
 import InterestDetails from "./InterestDetails";
 import AboutImage1 from "./graphics/AboutImage1";
 import AboutImage2 from "./graphics/AboutImage2";
 import ElipseSmall from "./graphics/ElipseSmall";
 import ElipseLarge from "./graphics/ElipseLarge";
+import Underline from "./ui/Underline";
+
 import styles from "./../styles/About.module.scss";
 
 const About = () => {
   const [details, setDetails] = useState("tech");
+  const [underlineProps, setUnderlineProps] = useState({});
+  const detailsRef = useRef();
+
+  useEffect(() => {
+    console.log(detailsRef.current.offsetLeft, detailsRef.current.offsetWidth);
+
+    const { offsetLeft, offsetWidth } = detailsRef.current;
+
+    setUnderlineProps({ left: offsetLeft, width: offsetWidth });
+  }, []);
 
   const handleShowDetails = (event) => {
+    const { offsetLeft, offsetWidth } = event.target;
+
+    // console.log("Target details: ", event);
+    // console.log(event.target.offsetLeft, event.target.offsetWidth);
+    // console.log("Do your variables match? ", offsetLeft, offsetWidth);
+
     setDetails(event.target.id);
+    setUnderlineProps({ left: offsetLeft, width: offsetWidth });
   };
 
   return (
@@ -37,6 +57,7 @@ const About = () => {
           <aside className={styles.details}>
             <h4>
               <span
+                ref={detailsRef}
                 id="tech"
                 className={styles.tech}
                 onClick={handleShowDetails}
@@ -50,6 +71,11 @@ const About = () => {
               >
                 Other Interests
               </span>
+              <Underline
+                backgroundColor={styles.colorAqua}
+                padding={5}
+                {...underlineProps}
+              />
             </h4>
             {details === "tech" ? <TechDetails /> : <InterestDetails />}
           </aside>

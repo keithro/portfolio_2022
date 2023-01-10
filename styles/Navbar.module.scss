@@ -11,12 +11,32 @@
   right: 0;
 
   transition: background-color 500ms ease-in-out;
+
+  a {
+    transition: all 200ms ease;
+
+    &:hover {
+      color: $color-purple;
+
+      svg {
+        fill: $color-purple;
+      }
+    }
+  }
 }
 
 .dark {
   background-color: $color-gray-dark;
-  // background-color: rgba($color: $color-gray-dark, $alpha: 0.95);
-  // background: linear-gradient(169deg, $color-purple, $color-blue);
+
+  a {
+    &:hover {
+      color: darken($color: $color-white, $amount: 20);
+
+      svg {
+        fill: darken($color: $color-white, $amount: 20);
+      }
+    }
+  }
 }
 
 .content {
@@ -39,8 +59,10 @@
   }
 
   svg {
+    fill: $color-white;
     width: 4.2rem;
     height: 4.2rem;
+    transition: fill 200ms ease;
   }
 
   span {
