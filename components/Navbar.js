@@ -1,26 +1,20 @@
 import Link from "next/link";
-import Image from "next/image";
+
 import LogoIcon from "./icons/LogoIcon";
 import SocialLinks from "./ui/SocialLinks";
+
 import styles from "./../styles/Navbar.module.scss";
 
-const Navbar = () => {
+const Navbar = ({ darkNav }) => {
   return (
-    <header className={styles.navbar}>
+    <header className={`${styles.navbar} ${darkNav ? "" : styles.dark}`}>
       <div className={styles.content}>
-        {/* <div className={styles.logo}>
-          <LogoIcon />
-          <span className={styles.brand}>keith</span>
-        </div> */}
-
         <Link href="#">
           <a className={styles.logo}>
             <LogoIcon />
             <span className={styles.brand}>keith</span>
           </a>
         </Link>
-
-        {/* <SocialLinks /> */}
 
         {/* TODO: Hamburger menu on mobile or no menu? Will need containing element and X to close menu */}
         <div className={styles.menu}>
@@ -39,6 +33,10 @@ const Navbar = () => {
               <a className={styles.link}>Contact</a>
             </Link>
           </nav>
+        </div>
+
+        <div className={styles.social_links_container}>
+          <SocialLinks />
         </div>
       </div>
     </header>

@@ -6,9 +6,37 @@
   font-weight: bold;
   position: fixed;
   z-index: 10;
-  padding: $size-md;
+  padding: $size-sm;
   left: 0;
   right: 0;
+
+  transition: background-color 500ms ease-in-out;
+
+  a {
+    transition: all 200ms ease;
+
+    &:hover {
+      color: $color-purple;
+
+      svg {
+        fill: $color-purple;
+      }
+    }
+  }
+}
+
+.dark {
+  background-color: $color-gray-dark;
+
+  a {
+    &:hover {
+      color: darken($color: $color-white, $amount: 20);
+
+      svg {
+        fill: darken($color: $color-white, $amount: 20);
+      }
+    }
+  }
 }
 
 .content {
@@ -21,23 +49,31 @@
 }
 
 .logo {
-  font-size: 1.75rem;
+  font-family: "Nunito", sans-serif;
+  font-size: 2.8rem;
   display: flex;
   align-items: center;
 
+  @include respond(tablet) {
+    font-size: 3.2rem;
+  }
+
   svg {
+    fill: $color-white;
     width: 4.2rem;
     height: 4.2rem;
+    transition: fill 200ms ease;
   }
 
   span {
     margin-left: $size-xs;
+    letter-spacing: 0.1rem;
   }
 }
 
 .menu {
   display: none;
-  margin: auto 0;
+  // margin: auto 0;
 
   @include respond(tablet) {
     display: block;
@@ -49,5 +85,13 @@
 
   &:last-of-type {
     margin-right: 0;
+  }
+}
+
+.social_links_container {
+  display: none;
+
+  @include respond(desktop) {
+    display: block;
   }
 }
