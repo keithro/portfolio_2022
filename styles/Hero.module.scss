@@ -112,6 +112,11 @@
   }
 }
 
+// .bg_img_2,
+// .bg_img_3 {
+//   @include svgShadow(medium);
+// }
+
 .bg_img_1 {
   bottom: 26rem;
 
@@ -141,6 +146,7 @@
 .cross_mark_4 {
   position: absolute;
   width: 2rem;
+  @include svgShadow(medium);
 
   @include respond(tablet) {
     width: 3rem;

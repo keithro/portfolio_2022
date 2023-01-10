@@ -7,7 +7,7 @@ const Underline = ({ backgroundColor, left, width, padding }) => {
   return (
     <div
       className={styles.underline}
-      style={{ left: left, width: width, backgroundColor: backgroundColor }}
+      style={{ left, width, backgroundColor }}
     ></div>
   );
 };

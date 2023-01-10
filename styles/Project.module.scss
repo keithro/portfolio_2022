@@ -17,7 +17,7 @@
 .image_pane,
 .content_pane {
   position: relative;
-  flex: 50% 1 1; // BUG: Is this why they are not sized even? or are they?
+  flex: 50% 1 1;
 
   display: flex;
   justify-content: center;
@@ -75,7 +75,7 @@
 
 .image_1,
 .image_2 {
-  // @include shadow(medium);
+  @include svgShadow(medium);
   transition: all 500ms ease-in-out;
 
   @include respond(desktop) {
@@ -261,6 +261,7 @@
 .cross_mark_1,
 .cross_mark_2 {
   width: 2rem;
+  @include svgShadow(medium);
 
   @include respond(tablet) {
     width: 3rem;

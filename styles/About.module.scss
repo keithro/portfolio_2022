@@ -78,8 +78,8 @@
       transition: all 200ms ease;
 
       &:hover {
-        color: $color-purple;
-        // color: lighten($color: $color-black, $amount: 35);
+        // color: $color-purple;
+        color: lighten($color: $color-black, $amount: 32);
       }
     }
 

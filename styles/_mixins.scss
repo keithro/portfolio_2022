@@ -32,3 +32,13 @@
     #{$obj}-shadow: 0rem 1rem 2rem rgba(0, 0, 0, 0.25) #{$inset};
   }
 }
+
+@mixin svgShadow($size) {
+  @if $size == medium {
+    filter: drop-shadow(0rem 0.8rem 1.5rem rgb(0 0 0 / 0.25));
+  }
+
+  @if $size == large {
+    filter: drop-shadow(0rem 1rem 2rem rgb(0 0 0 / 0.25));
+  }
+}
