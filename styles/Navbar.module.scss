@@ -6,9 +6,17 @@
   font-weight: bold;
   position: fixed;
   z-index: 10;
-  padding: $size-md;
+  padding: $size-sm;
   left: 0;
   right: 0;
+
+  transition: background-color 500ms ease-in-out;
+}
+
+.dark {
+  background-color: $color-gray-dark;
+  // background-color: rgba($color: $color-gray-dark, $alpha: 0.95);
+  // background: linear-gradient(169deg, $color-purple, $color-blue);
 }
 
 .content {
@@ -21,9 +29,14 @@
 }
 
 .logo {
-  font-size: 1.75rem;
+  font-family: "Nunito", sans-serif;
+  font-size: 2.8rem;
   display: flex;
   align-items: center;
+
+  @include respond(tablet) {
+    font-size: 3.2rem;
+  }
 
   svg {
     width: 4.2rem;
@@ -32,12 +45,13 @@
 
   span {
     margin-left: $size-xs;
+    letter-spacing: 0.1rem;
   }
 }
 
 .menu {
   display: none;
-  margin: auto 0;
+  // margin: auto 0;
 
   @include respond(tablet) {
     display: block;
@@ -49,5 +63,13 @@
 
   &:last-of-type {
     margin-right: 0;
+  }
+}
+
+.social_links_container {
+  display: none;
+
+  @include respond(desktop) {
+    display: block;
   }
 }

@@ -43,7 +43,7 @@ const Contact = () => {
           )}
 
           {successfullySent && (
-            <div className={styles.successMessage}>
+            <div className={styles.success_message}>
               <h2>Thank You!</h2>
               <p>
                 Your message was sent successfully. I&#39;ll be in touch
@@ -52,7 +52,7 @@ const Contact = () => {
             </div>
           )}
 
-          <div className={styles.socialLinksContainer}>
+          <div className={styles.social_links_container}>
             <SocialLinks />
           </div>
         </div>

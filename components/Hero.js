@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Image from "next/image";
+import { useRef, useEffect } from "react";
 
 import CrossMark from "./graphics/CrossMark";
 import HeroImage1 from "./graphics/HeroImage1";
@@ -7,11 +7,29 @@ import HeroImage2 from "./graphics/HeroImage2";
 import HeroImage3 from "./graphics/HeroImage3";
 import MailIcon from "./icons/MailIcon";
 import ArrowIcon from "./icons/ArrowIcon";
+
 import styles from "./../styles/Hero.module.scss";
 
-const Hero = () => {
+const Hero = ({ setDarkNav }) => {
+  const heroRef = useRef();
+
+  useEffect(() => {
+    const heroObserver = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        console.log(entry.intersectionRatio);
+        setDarkNav(entry.isIntersecting);
+      },
+      {
+        // rootMargin: "0px 0px 0px 0px",
+        threshold: 0.9,
+      }
+    );
+    heroObserver.observe(heroRef.current);
+  }, []);
+
   return (
-    <section id="home" className={styles.section}>
+    <section id="home" className={styles.section} ref={heroRef}>
       <HeroImage1 className={styles.bg_img_1} />
       <HeroImage2 className={styles.bg_img_2} />
       <HeroImage3 className={styles.bg_img_3} />
