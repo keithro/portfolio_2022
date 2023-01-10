@@ -8,8 +8,14 @@
     margin-right: $size-lg;
 
     svg {
+      fill: $color-white;
       height: 4.2rem;
       width: 4.2rem;
+      transition: all 200ms ease;
+
+      &:hover {
+        fill: darken($color: $color-white, $amount: 20);
+      }
     }
   }
 

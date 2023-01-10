@@ -1,5 +1,5 @@
 import Head from "next/head";
-import Image from "next/image";
+import { useState } from "react";
 
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
@@ -8,25 +8,25 @@ import Projects from "../components/Projects";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 
-import styles from "../styles/Home.module.scss";
-
 export default function Home() {
+  const [darkNav, setDarkNav] = useState(false);
+
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
         {/* <title>Keith&apos;s Portfolio</title> */}
         <title>Keith | Full Stack Engineer</title>
         <meta name="description" content="Keith Rodriguez's portfolio site" />
         <meta
           name="keywords"
-          content="Keith Rodriguez, software engineer, front-end developer, full stack developer, back end developer"
+          content="Keith Rodriguez, software engineer, software developer, frontend developer, front-end developer, full stack developer, back end developer"
         />
         <link rel="icon" href="/favicon.png" />
       </Head>
 
-      <Navbar />
-      <main className={styles.main}>
-        <Hero />
+      <Navbar darkNav={darkNav} />
+      <main>
+        <Hero setDarkNav={setDarkNav} />
         <About />
         <Projects />
         <Contact />
