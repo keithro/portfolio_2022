@@ -12,15 +12,15 @@ import styles from "./../styles/About.module.scss";
 
 const About = () => {
   const [details, setDetails] = useState("tech");
-  const [underlineProps, setUnderlineProps] = useState({});
+  const [aboutTabIndicator, setAboutTabIndicator] = useState({});
   const detailsRef = useRef();
 
   useEffect(() => {
-    console.log(detailsRef.current.offsetLeft, detailsRef.current.offsetWidth);
+    // console.log(detailsRef.current.offsetLeft, detailsRef.current.offsetWidth);
 
     const { offsetLeft, offsetWidth } = detailsRef.current;
 
-    setUnderlineProps({ left: offsetLeft, width: offsetWidth });
+    setAboutTabIndicator({ left: offsetLeft, width: offsetWidth });
   }, []);
 
   const handleShowDetails = (event) => {
@@ -31,7 +31,7 @@ const About = () => {
     // console.log("Do your variables match? ", offsetLeft, offsetWidth);
 
     setDetails(event.target.id);
-    setUnderlineProps({ left: offsetLeft, width: offsetWidth });
+    setAboutTabIndicator({ left: offsetLeft, width: offsetWidth });
   };
 
   return (
@@ -74,7 +74,7 @@ const About = () => {
               <Underline
                 backgroundColor={styles.colorAqua}
                 padding={5}
-                {...underlineProps}
+                {...aboutTabIndicator}
               />
             </h4>
             {details === "tech" ? <TechDetails /> : <InterestDetails />}
