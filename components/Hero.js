@@ -10,7 +10,7 @@ import ArrowIcon from "./icons/ArrowIcon";
 
 import styles from "./../styles/Hero.module.scss";
 
-const Hero = ({ setDarkNav }) => {
+const Hero = ({ setDarkNav, setPageLocation }) => {
   const heroRef = useRef();
 
   useEffect(() => {
@@ -19,12 +19,23 @@ const Hero = ({ setDarkNav }) => {
         const entry = entries[0];
         setDarkNav(entry.isIntersecting);
       },
-      {
-        // rootMargin: "0px 0px 0px 0px",
-        threshold: 0.9,
-      }
+      { threshold: 0.9 }
     );
     heroObserver.observe(heroRef.current);
+  }, []);
+
+  useEffect(() => {
+    const sectionObserver = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+
+        if (entry.isIntersecting) {
+          setPageLocation("Home");
+        }
+      },
+      { rootMargin: "-20% 0px -20% 0px" }
+    );
+    sectionObserver.observe(heroRef.current);
   }, []);
 
   return (

@@ -1,18 +1,34 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+
 import ContactForm from "./ui/ContactForm";
 import SocialLinks from "./ui/SocialLinks";
-import Loader from "./Loader";
 import ContactImage1 from "./graphics/ContactImage1";
 import ContactImage2 from "./graphics/ContactImage2";
 import ElipseLarge from "./graphics/ElipseLarge";
 import ElipseSmall from "./graphics/ElipseSmall";
+
 import styles from "../styles/Contact.module.scss";
 
-const Contact = () => {
+const Contact = ({ setPageLocation }) => {
   const [successfullySent, setSuccessfullySent] = useState(false);
+  const sectionRef = useRef();
+
+  useEffect(() => {
+    const sectionObserver = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+
+        if (entry.isIntersecting) {
+          setPageLocation("Contact");
+        }
+      },
+      { rootMargin: "-20% 0px -20% 0px" }
+    );
+    sectionObserver.observe(sectionRef.current);
+  }, []);
 
   return (
-    <section id="contact" className={styles.section}>
+    <section ref={sectionRef} id="contact" className={styles.section}>
       <ContactImage1 className={styles.bg_img_1} alt="Background Layer 1" />
       <ContactImage2 className={styles.bg_img_2} alt="Background Layer 2" />
 
