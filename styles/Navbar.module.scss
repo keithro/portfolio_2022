@@ -16,10 +16,10 @@
     transition: all 200ms ease;
 
     &:hover {
-      color: $color-purple;
+      color: lighten($color: $color-gray-dark, $amount: 10);
 
       svg {
-        fill: $color-purple;
+        fill: lighten($color: $color-gray-dark, $amount: 10);
       }
     }
   }

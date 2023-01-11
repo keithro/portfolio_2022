@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
@@ -10,6 +10,7 @@ import Footer from "../components/Footer";
 
 export default function Home() {
   const [darkNav, setDarkNav] = useState(false);
+  const [pageLocation, setPageLocation] = useState("Home");
 
   return (
     <div>
@@ -24,12 +25,12 @@ export default function Home() {
         <link rel="icon" href="/favicon.png" />
       </Head>
 
-      <Navbar darkNav={darkNav} />
+      <Navbar darkNav={darkNav} pageLocation={pageLocation} />
       <main>
-        <Hero setDarkNav={setDarkNav} />
-        <About />
-        <Projects />
-        <Contact />
+        <Hero setDarkNav={setDarkNav} setPageLocation={setPageLocation} />
+        <About setPageLocation={setPageLocation} />
+        <Projects setPageLocation={setPageLocation} />
+        <Contact setPageLocation={setPageLocation} />
       </main>
       <Footer />
     </div>

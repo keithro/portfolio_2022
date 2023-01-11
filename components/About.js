@@ -10,32 +10,44 @@ import Underline from "./ui/Underline";
 
 import styles from "./../styles/About.module.scss";
 
-const About = () => {
+const About = ({ setPageLocation }) => {
   const [details, setDetails] = useState("tech");
-  const [aboutTabIndicator, setAboutTabIndicator] = useState({});
+  const [tabIndicatorPosition, setTabIndicatorPosition] = useState({
+    left: 0,
+    width: 0,
+  });
   const detailsRef = useRef();
+  const sectionRef = useRef();
 
   useEffect(() => {
-    // console.log(detailsRef.current.offsetLeft, detailsRef.current.offsetWidth);
-
     const { offsetLeft, offsetWidth } = detailsRef.current;
 
-    setAboutTabIndicator({ left: offsetLeft, width: offsetWidth });
-  }, []);
+    setTabIndicatorPosition({ left: offsetLeft, width: offsetWidth });
+  }, [detailsRef]);
 
   const handleShowDetails = (event) => {
     const { offsetLeft, offsetWidth } = event.target;
 
-    // console.log("Target details: ", event);
-    // console.log(event.target.offsetLeft, event.target.offsetWidth);
-    // console.log("Do your variables match? ", offsetLeft, offsetWidth);
-
     setDetails(event.target.id);
-    setAboutTabIndicator({ left: offsetLeft, width: offsetWidth });
+    setTabIndicatorPosition({ left: offsetLeft, width: offsetWidth });
   };
 
+  useEffect(() => {
+    const sectionObserver = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+
+        if (entry.isIntersecting) {
+          setPageLocation("About");
+        }
+      },
+      { rootMargin: "-20% 0px -20% 0px" }
+    );
+    sectionObserver.observe(sectionRef.current);
+  }, []);
+
   return (
-    <section id="about">
+    <section ref={sectionRef} id="about">
       <div className={styles.container}>
         <div className={styles.content}>
           <main className={styles.story}>
@@ -74,7 +86,7 @@ const About = () => {
               <Underline
                 backgroundColor={styles.colorAqua}
                 padding={5}
-                {...aboutTabIndicator}
+                {...tabIndicatorPosition}
               />
             </h4>
             {details === "tech" ? <TechDetails /> : <InterestDetails />}
