@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+
 import ProjectImageLeft from "./graphics/ProjectImageLeft";
 import ProjectImageRight from "./graphics/ProjectImageRight";
 import ProjectLine1 from "./graphics/ProjectLine1";
@@ -7,6 +8,7 @@ import ProjectLine2 from "./graphics/ProjectLine2";
 import CrossMark from "./graphics/CrossMark";
 import GlobeIcon from "./icons/GlobeIcon";
 import GitHubIcon from "./icons/GitHubIcon";
+
 import styles from "./../styles/Project.module.scss";
 
 const Project = (props) => {
