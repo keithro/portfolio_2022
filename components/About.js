@@ -16,6 +16,23 @@ const About = ({ setPageLocation }) => {
     left: 0,
     width: 0,
   });
+
+  const [tempTabIndicatorPosition, setTempTabIndicatorPosition] =
+    useState(null);
+
+  const handleMouseEnter = (event) => {
+    const { offsetLeft, offsetWidth } = event.target;
+    setTempTabIndicatorPosition({ left: offsetLeft, width: offsetWidth });
+  };
+
+  const handleMouseLeave = () => {
+    setTempTabIndicatorPosition(null);
+  };
+
+  const indicatorPosition = tempTabIndicatorPosition
+    ? tempTabIndicatorPosition
+    : tabIndicatorPosition;
+
   const detailsRef = useRef();
   const sectionRef = useRef();
 
@@ -73,6 +90,8 @@ const About = ({ setPageLocation }) => {
                 id="tech"
                 className={styles.tech}
                 onClick={handleShowDetails}
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
               >
                 My Tech Stack
               </span>
@@ -80,13 +99,15 @@ const About = ({ setPageLocation }) => {
                 id="interests"
                 className={styles.interests}
                 onClick={handleShowDetails}
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
               >
                 Other Interests
               </span>
               <Underline
                 backgroundColor={styles.colorAqua}
                 padding={5}
-                {...tabIndicatorPosition}
+                {...indicatorPosition}
               />
             </h4>
             {details === "tech" ? <TechDetails /> : <InterestDetails />}
