@@ -17,15 +17,11 @@ const Navbar = ({ darkNav, pageLocation }) => {
   const navRef = useRef();
 
   const handleMouseEnter = (event) => {
-    console.log("Mouse Enter!", event);
-
     const { offsetLeft, offsetWidth } = event.target;
-    console.log(offsetLeft, offsetWidth);
     setTempNavIndicatorPosition({ left: offsetLeft, width: offsetWidth });
   };
 
-  const handleMouseLeave = (event) => {
-    console.log("Mouse Leave!", event);
+  const handleMouseLeave = () => {
     setTempNavIndicatorPosition(null);
   };
 
