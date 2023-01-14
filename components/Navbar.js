@@ -12,7 +12,26 @@ const Navbar = ({ darkNav, pageLocation }) => {
     left: 0,
     width: 0,
   });
+  const [tempNavIndicatorPosition, setTempNavIndicatorPosition] =
+    useState(null);
   const navRef = useRef();
+
+  const handleMouseEnter = (event) => {
+    console.log("Mouse Enter!", event);
+
+    const { offsetLeft, offsetWidth } = event.target;
+    console.log(offsetLeft, offsetWidth);
+    setTempNavIndicatorPosition({ left: offsetLeft, width: offsetWidth });
+  };
+
+  const handleMouseLeave = (event) => {
+    console.log("Mouse Leave!", event);
+    setTempNavIndicatorPosition(null);
+  };
+
+  const indicatorPosition = tempNavIndicatorPosition
+    ? tempNavIndicatorPosition
+    : navIndicatorPosition;
 
   useEffect(() => {
     console.log("useEffect for Nav Indicator ran again on ", pageLocation);
@@ -43,16 +62,40 @@ const Navbar = ({ darkNav, pageLocation }) => {
           {/* <span className={styles.hamburger}>&nbsp;</span> */}
           <nav className={styles.list} ref={navRef}>
             <Link href="#home">
-              <a className={styles.link}>Home</a>
+              <a
+                className={styles.link}
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+              >
+                Home
+              </a>
             </Link>
             <Link href="#about">
-              <a className={styles.link}>About</a>
+              <a
+                className={styles.link}
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+              >
+                About
+              </a>
             </Link>
             <Link href="#projects">
-              <a className={styles.link}>Projects</a>
+              <a
+                className={styles.link}
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+              >
+                Projects
+              </a>
             </Link>
             <Link href="#contact">
-              <a className={styles.link}>Contact</a>
+              <a
+                className={styles.link}
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+              >
+                Contact
+              </a>
             </Link>
           </nav>
           <Underline
@@ -60,7 +103,7 @@ const Navbar = ({ darkNav, pageLocation }) => {
               darkNav ? styles.colorPurple : styles.colorAqua
             }`}
             padding={5}
-            {...navIndicatorPosition}
+            {...indicatorPosition}
           />
         </div>
 
