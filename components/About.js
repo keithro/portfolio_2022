@@ -16,9 +16,16 @@ const About = ({ setPageLocation }) => {
     left: 0,
     width: 0,
   });
-
   const [tempTabIndicatorPosition, setTempTabIndicatorPosition] =
     useState(null);
+  const detailsRef = useRef();
+  const sectionRef = useRef();
+
+  const handleShowDetails = (event) => {
+    const { id, offsetLeft, offsetWidth } = event.target;
+    setDetails(id);
+    setTabIndicatorPosition({ left: offsetLeft, width: offsetWidth });
+  };
 
   const handleMouseEnter = (event) => {
     const { offsetLeft, offsetWidth } = event.target;
@@ -33,21 +40,10 @@ const About = ({ setPageLocation }) => {
     ? tempTabIndicatorPosition
     : tabIndicatorPosition;
 
-  const detailsRef = useRef();
-  const sectionRef = useRef();
-
   useEffect(() => {
     const { offsetLeft, offsetWidth } = detailsRef.current;
-
     setTabIndicatorPosition({ left: offsetLeft, width: offsetWidth });
   }, [detailsRef]);
-
-  const handleShowDetails = (event) => {
-    const { offsetLeft, offsetWidth } = event.target;
-
-    setDetails(event.target.id);
-    setTabIndicatorPosition({ left: offsetLeft, width: offsetWidth });
-  };
 
   useEffect(() => {
     const sectionObserver = new IntersectionObserver(
