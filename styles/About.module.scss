@@ -31,12 +31,52 @@
 .content {
   margin-bottom: 40rem;
 
+  // Fade in animation:
+  & > main > *,
+  & > aside > * {
+    opacity: 0;
+    // filter: blur(0.5rem);
+    transform: translateY(50%);
+    transition: all 1000ms;
+  }
+
+  &.visible > main > *,
+  &.visible > aside > * {
+    opacity: 1;
+    // filter: blur(0);
+    transform: translateY(0);
+  }
+
+  &.visible > main > *:nth-child(2) {
+    transition-delay: 200ms;
+  }
+
+  &.visible > main > *:nth-child(3) {
+    transition-delay: 400ms;
+  }
+
+  &.visible > aside > *:nth-child(1) {
+    transition-delay: 600ms;
+  }
+
+  &.visible > aside > *:nth-child(2) {
+    transition-delay: 800ms;
+  }
+
+  &.visible > aside > *:nth-child(3) {
+    transition-delay: 1000ms;
+  }
+
   @include respond(desktop) {
     margin-bottom: 25rem;
   }
 
   @include respond(large-screen) {
     margin-bottom: 20rem;
+  }
+
+  @media (prefers-reduced-motion) {
+    transition: none;
   }
 }
 

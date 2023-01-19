@@ -12,6 +12,7 @@ import styles from "./../styles/About.module.scss";
 
 const About = ({ setPageLocation }) => {
   const [details, setDetails] = useState("tech");
+  const [contentIsVisible, setContentIsVisible] = useState(false);
   const [tabIndicatorPosition, setTabIndicatorPosition] = useState({
     left: 0,
     width: 0,
@@ -49,12 +50,16 @@ const About = ({ setPageLocation }) => {
     const sectionObserver = new IntersectionObserver(
       (entries) => {
         const entry = entries[0];
-
+        console.log("About is intersectin", entry.isIntersecting); // DELETE:
+        setContentIsVisible(entry.isIntersecting);
         if (entry.isIntersecting) {
           setPageLocation("About");
         }
       },
-      { rootMargin: "-20% 0px -20% 0px" }
+      {
+        rootMargin: "-30% 0px -30% 0px",
+        // threshold: 0.5,
+      }
     );
     sectionObserver.observe(sectionRef.current);
   }, []);
@@ -62,7 +67,11 @@ const About = ({ setPageLocation }) => {
   return (
     <section ref={sectionRef} id="about">
       <div className={styles.container}>
-        <div className={styles.content}>
+        <div
+          className={`${styles.content} ${
+            contentIsVisible ? styles.visible : ""
+          }`}
+        >
           <main className={styles.story}>
             <h2>My Story</h2>
             <p>
