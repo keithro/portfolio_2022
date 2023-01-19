@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
 
 import ProjectImageLeft from "./graphics/ProjectImageLeft";
 import ProjectImageRight from "./graphics/ProjectImageRight";
@@ -12,10 +13,8 @@ import GitHubIcon from "./icons/GitHubIcon";
 import styles from "./../styles/Project.module.scss";
 
 const Project = (props) => {
-  // console.log("Your Props: ", props); // DELETE
-
-  // TODO: Clean up unused code
-  // let backgroundImage, imageClass, contentClass, crossMarkOne, crossMarkTwo;
+  const [isVisible, setIsVisible] = useState(false);
+  const projectRef = useRef();
   let backgroundImage, line, crossMarkOne, crossMarkTwo;
 
   if (props.imageLeft) {
@@ -40,8 +39,23 @@ const Project = (props) => {
     );
   }
 
+  useEffect(() => {
+    const projectObserver = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+
+        setIsVisible(entry.isIntersecting);
+      },
+      { threshold: 0.25 }
+    );
+    projectObserver.observe(projectRef.current);
+  }, []);
+
   return (
-    <section className={styles.project}>
+    <section
+      ref={projectRef}
+      className={`${styles.project} ${isVisible ? styles.visible : ""}`}
+    >
       <div className={styles.image_pane}>
         {backgroundImage}
         <div className={styles.images}>

@@ -30,7 +30,7 @@
 
 .content {
   opacity: 0;
-  transform: translateY(50%);
+  transform: translateY(10rem);
   transition: all 1000ms;
 
   &.visible {

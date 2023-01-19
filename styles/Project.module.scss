@@ -23,18 +23,48 @@
   justify-content: center;
   align-items: center;
 
-  // border: solid 1px purple;
+  opacity: 0;
+  transform: translateX(10rem);
+  transition: all 1000ms;
 }
 
-// EVEN PROJECTS ONLY (TEXT LEFT / IMAGE RIGHT)
-.project:nth-of-type(even) > .image_pane {
-  @include respond(desktop) {
-    order: 2;
+.project.visible > .image_pane,
+.project.visible > .content_pane {
+  opacity: 1;
+  transform: translateX(0);
+
+  &:nth-child(2) {
+    transition-delay: 200ms;
   }
 }
-.project:nth-of-type(even) > .content_pane {
-  @include respond(desktop) {
-    order: 1;
+
+// EVEN NUMBERED PROJECTS ONLY: TEXT LEFT / IMAGE RIGHT
+.project:nth-of-type(even) {
+  & > .image_pane,
+  & > .content_pane {
+    @include respond(desktop) {
+      transform: translateX(-10rem);
+    }
+  }
+
+  & > .image_pane {
+    @include respond(desktop) {
+      order: 2;
+      // transform: translateX(-10rem);
+    }
+  }
+
+  & > .content_pane {
+    @include respond(desktop) {
+      order: 1;
+    }
+  }
+
+  &.visible > .image_pane,
+  &.visible > .content_pane {
+    @include respond(desktop) {
+      transform: translateX(0);
+    }
   }
 }
 
@@ -203,7 +233,6 @@
 
   &:hover {
     transform: scale(1.03);
-    // @include shadow(medium);
     @include shadow(large);
   }
 
@@ -253,7 +282,7 @@
     width: 30rem;
   }
 
-  @include respond(tablet) {
+  @include respond(desktop) {
     width: 60%;
   }
 }
@@ -274,6 +303,10 @@
   transform: rotate(-8deg);
 
   @include respond(tablet) {
+    top: 5rem;
+  }
+
+  @include respond(desktop) {
     top: 5%;
     left: -20%;
   }
@@ -284,7 +317,7 @@
   right: 0rem;
   transform: rotate(10deg);
 
-  @include respond(tablet) {
+  @include respond(desktop) {
     bottom: 15%;
     right: -15%;
   }
@@ -310,14 +343,14 @@
   }
 }
 
-// EVEN PROJECTS ONLY (TEXT LEFT / IMAGE RIGHT)
+// EVEN NUMBERED PROJECTS ONLY (TEXT LEFT / IMAGE RIGHT)
 .project:nth-of-type(even) > .content_pane {
   .watermark_1 {
     top: auto;
     left: 0rem;
     bottom: 0rem;
 
-    @include respond(tablet) {
+    @include respond(desktop) {
       left: -15%;
       bottom: 10%;
     }
@@ -328,7 +361,7 @@
     right: 0rem;
     bottom: auto;
 
-    @include respond(tablet) {
+    @include respond(desktop) {
       right: -10%;
     }
   }
