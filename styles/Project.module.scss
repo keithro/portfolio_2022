@@ -40,6 +40,7 @@
 
 // EVEN NUMBERED PROJECTS ONLY: TEXT LEFT / IMAGE RIGHT
 .project:nth-of-type(even) {
+  // Fade in from left on desktop
   & > .image_pane,
   & > .content_pane {
     @include respond(desktop) {
@@ -50,7 +51,6 @@
   & > .image_pane {
     @include respond(desktop) {
       order: 2;
-      // transform: translateX(-10rem);
     }
   }
 
@@ -60,6 +60,7 @@
     }
   }
 
+  // Move to original position (had to override more specific selectors above)
   &.visible > .image_pane,
   &.visible > .content_pane {
     @include respond(desktop) {

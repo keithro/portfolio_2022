@@ -77,10 +77,6 @@ const ContactForm = ({ setSuccessfullySent }) => {
           Send Message <MailIcon />
         </button>
 
-        {/* <div>
-          <button>Submit</button>
-        </div> */}
-
         <ReCAPTCHA
           sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
           size="invisible"

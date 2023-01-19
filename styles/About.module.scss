@@ -200,13 +200,14 @@
   }
 
   @include respond(desktop) {
-    left: 14rem;
-    top: 56rem;
+    // left: 14rem;
+    left: 30%;
+    top: 60rem;
     bottom: revert;
   }
 
   @include respond(large-screen) {
-    left: 26rem;
+    left: 35%;
     // top: 56rem;
   }
 }
