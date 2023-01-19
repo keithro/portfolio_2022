@@ -31,6 +31,48 @@
 .content {
   margin-bottom: 40rem;
 
+  // ----------------------------------
+  // Fade in animation:
+  & > main > *,
+  & > aside > * {
+    opacity: 0;
+    // filter: blur(0.5rem);
+    transform: translateY(50%);
+    transition: all 1000ms;
+  }
+
+  &.visible > main > *,
+  &.visible > aside > * {
+    opacity: 1;
+    // filter: blur(0);
+    transform: translateY(0);
+  }
+
+  &.visible > main > *:nth-child(2) {
+    transition-delay: 200ms;
+  }
+
+  &.visible > main > *:nth-child(3) {
+    transition-delay: 400ms;
+  }
+
+  &.visible > aside > *:nth-child(1) {
+    transition-delay: 600ms;
+  }
+
+  &.visible > aside > *:nth-child(2) {
+    transition-delay: 800ms;
+  }
+
+  &.visible > aside > *:nth-child(3) {
+    transition-delay: 1000ms;
+  }
+
+  @media (prefers-reduced-motion) {
+    transition: none;
+  }
+  // ----------------------------------
+
   @include respond(desktop) {
     margin-bottom: 25rem;
   }
@@ -158,13 +200,14 @@
   }
 
   @include respond(desktop) {
-    left: 14rem;
-    top: 56rem;
+    // left: 14rem;
+    left: 30%;
+    top: 60rem;
     bottom: revert;
   }
 
   @include respond(large-screen) {
-    left: 26rem;
+    left: 35%;
     // top: 56rem;
   }
 }
@@ -195,6 +238,6 @@
   }
 
   @include respond(desktop) {
-    max-width: 45%;
+    max-width: 50%;
   }
 }

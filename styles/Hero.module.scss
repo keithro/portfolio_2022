@@ -149,11 +149,11 @@
   @include svgShadow(medium);
 
   @include respond(tablet) {
-    width: 3rem;
+    width: 2.4rem;
   }
 
   @include respond(desktop) {
-    width: 4rem;
+    width: 3rem;
   }
 }
 
