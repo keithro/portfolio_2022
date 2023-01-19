@@ -29,6 +29,15 @@
 }
 
 .content {
+  opacity: 0;
+  transform: translateY(50%);
+  transition: all 1000ms;
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
   @include respond(desktop) {
     display: grid;
     gap: 4rem;

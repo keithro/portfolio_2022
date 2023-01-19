@@ -10,6 +10,7 @@ import ElipseSmall from "./graphics/ElipseSmall";
 import styles from "../styles/Contact.module.scss";
 
 const Contact = ({ setPageLocation }) => {
+  const [contentIsVisible, setContentIsVisible] = useState(false);
   const [successfullySent, setSuccessfullySent] = useState(false);
   const sectionRef = useRef();
 
@@ -18,11 +19,12 @@ const Contact = ({ setPageLocation }) => {
       (entries) => {
         const entry = entries[0];
 
+        setContentIsVisible(entry.isIntersecting);
         if (entry.isIntersecting) {
           setPageLocation("Contact");
         }
       },
-      { rootMargin: "-20% 0px -20% 0px" }
+      { rootMargin: "-30% 0px -30% 0px" }
     );
     sectionObserver.observe(sectionRef.current);
   }, []);
@@ -44,7 +46,11 @@ const Contact = ({ setPageLocation }) => {
       />
 
       <div className={styles.container}>
-        <div className={styles.content}>
+        <div
+          className={`${styles.content} ${
+            contentIsVisible ? styles.visible : ""
+          }`}
+        >
           <div className={styles.text}>
             <h2>Contact</h2>
             <span></span>

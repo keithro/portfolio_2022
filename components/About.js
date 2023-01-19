@@ -50,7 +50,6 @@ const About = ({ setPageLocation }) => {
     const sectionObserver = new IntersectionObserver(
       (entries) => {
         const entry = entries[0];
-        console.log("About is intersectin", entry.isIntersecting); // DELETE:
         setContentIsVisible(entry.isIntersecting);
         if (entry.isIntersecting) {
           setPageLocation("About");
