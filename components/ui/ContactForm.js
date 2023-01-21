@@ -1,22 +1,23 @@
 import { useRef, useState } from "react";
-import MailIcon from "../icons/MailIcon";
 import ReCAPTCHA from "react-google-recaptcha";
+
+import ErrorMessage from "./ErrorMessage";
+import MailIcon from "../icons/MailIcon";
+
 import styles from "./../../styles/ui/ContactForm.module.scss";
 
 const ContactForm = ({ setSuccessfullySent }) => {
   const recaptchaRef = useRef();
   const [submitting, setSubmitting] = useState(false);
-  const [serverErrors, setServerErrors] = useState(null);
-
-  console.log(serverErrors); // DELETE
+  const [errors, setErrors] = useState(null);
 
   async function handleOnSubmit(e) {
     e.preventDefault();
     setSubmitting(true);
-    setServerErrors(null);
+    setErrors(null);
 
     const formData = {};
-    // Using currentTarget obj to create array of data then iterated through and added to obj
+    // Using currentTarget obj to create array of data then iterated through and add to formData obj
     Array.from(e.currentTarget.elements).forEach((field) => {
       if (!field.name) return;
       formData[field.name] = field.value;
@@ -24,11 +25,10 @@ const ContactForm = ({ setSuccessfullySent }) => {
 
     try {
       const token = await recaptchaRef.current.executeAsync();
-      // console.log("Your token: ", token); // DELETE
       recaptchaRef.current.reset();
       formData.token = token;
 
-      console.log({ formData }); // this is only the original data from form
+      // console.log("The form data + token: ", formData);
 
       const response = await fetch("/api/mail", {
         method: "POST",
@@ -39,7 +39,7 @@ const ContactForm = ({ setSuccessfullySent }) => {
 
       if (data.errors) {
         console.log("Something went wrong!", data.errors);
-        setServerErrors(data.errors);
+        setErrors(data.errors);
       } else {
         console.log("Successfully sent!");
         console.log(data);
@@ -49,20 +49,14 @@ const ContactForm = ({ setSuccessfullySent }) => {
       setSubmitting(false);
     } catch (error) {
       console.log(error);
-      setServerErrors([error]);
+      setErrors([error]);
     }
   }
 
   return (
     <>
       <form className={styles.form} method="post" onSubmit={handleOnSubmit}>
-        {serverErrors && (
-          <ul className={styles.errors}>
-            {serverErrors.map((error) => {
-              return <li key={error}>{error}</li>;
-            })}
-          </ul>
-        )}
+        {errors && <ErrorMessage errors={errors} />}
         <div>
           <label htmlFor="name">name*</label>
           <input type="text" name="name" />

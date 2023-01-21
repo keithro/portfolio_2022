@@ -78,14 +78,3 @@
     }
   }
 }
-
-.errors {
-  padding: $size-sm;
-  border: solid 1px $color-red;
-  border-radius: $size-sm;
-  background-color: rgba($color: $color-red, $alpha: 0.6);
-
-  li {
-    list-style-type: none;
-  }
-}
