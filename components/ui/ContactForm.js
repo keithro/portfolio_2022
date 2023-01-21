@@ -6,12 +6,14 @@ import styles from "./../../styles/ui/ContactForm.module.scss";
 const ContactForm = ({ setSuccessfullySent }) => {
   const recaptchaRef = useRef();
   const [submitting, setSubmitting] = useState(false);
-  const [serverErrors, setServerErrors] = useState([]);
+  const [serverErrors, setServerErrors] = useState(null);
+
+  console.log(serverErrors); // DELETE
 
   async function handleOnSubmit(e) {
     e.preventDefault();
     setSubmitting(true);
-    setServerErrors([]);
+    setServerErrors(null);
 
     const formData = {};
     // Using currentTarget obj to create array of data then iterated through and added to obj
@@ -55,9 +57,9 @@ const ContactForm = ({ setSuccessfullySent }) => {
     <>
       <form className={styles.form} method="post" onSubmit={handleOnSubmit}>
         {serverErrors && (
-          <ul>
+          <ul className={styles.errors}>
             {serverErrors.map((error) => {
-              <li key={error}>{error}</li>;
+              return <li key={error}>{error}</li>;
             })}
           </ul>
         )}

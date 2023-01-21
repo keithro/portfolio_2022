@@ -29,9 +29,10 @@
 }
 
 .content {
-  opacity: 0;
-  transform: translateY(10rem);
-  transition: all 1000ms;
+  // BUG: Having this off screen makes the reCAPTCHA render inside the div rather than on side of viewport
+  // opacity: 0;
+  // transform: translateY(10rem);
+  // transition: all 1000ms;
 
   &.visible {
     opacity: 1;

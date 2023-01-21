@@ -30,7 +30,7 @@ const Navbar = ({ darkNav, pageLocation }) => {
     : navIndicatorPosition;
 
   useEffect(() => {
-    console.log("useEffect for Nav Indicator ran again on ", pageLocation);
+    // console.log("useEffect for Nav Indicator ran again on ", pageLocation);
     if (navRef.current.childNodes) {
       navRef.current.childNodes.forEach((node) => {
         const { innerText, offsetLeft, offsetWidth } = node;

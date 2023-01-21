@@ -5,7 +5,7 @@ mail.setApiKey(process.env.SENDGRID_API_KEY);
 
 export default async function handler(req, res) {
   const formData = JSON.parse(req.body);
-  console.log("Form data received from request: ", formData);
+  // console.log("Form data received from request: ", formData);
 
   const isHuman = await validateHuman(formData.token);
   if (!isHuman.success) {
@@ -40,14 +40,14 @@ async function validateHuman(token) {
       `https://www.google.com/recaptcha/api/siteverify?secret=${secret}&response=${token}`,
       { method: "POST" }
     );
-    console.log(response.status);
+    console.log("reCAPTCHA validation response status: ", response.status);
     const data = await response.json();
 
-    console.log("recaptcha response data: ", data);
+    console.log("reCAPTCHA validation response data: ", data);
 
     return data;
   } catch (error) {
-    console.log("Captcha validation error: ", error);
-    return { success: false, "error-codes": ["Unable to verify captcha"] };
+    console.log("reCAPTCHA validation error: ", error);
+    return { success: false, errors: ["Unable to verify captcha"] };
   }
 }
