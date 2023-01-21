@@ -10,16 +10,16 @@ import ElipseSmall from "./graphics/ElipseSmall";
 import styles from "../styles/Contact.module.scss";
 
 const Contact = ({ setPageLocation }) => {
-  const [contentIsVisible, setContentIsVisible] = useState(false);
+  const [contactFormIsVisible, setContactFormIsVisible] = useState(false);
   const [successfullySent, setSuccessfullySent] = useState(false);
   const sectionRef = useRef();
+  const contactFormRef = useRef();
 
   useEffect(() => {
     const sectionObserver = new IntersectionObserver(
       (entries) => {
         const entry = entries[0];
-
-        setContentIsVisible(entry.isIntersecting);
+        console.log("Contact section", entry.isIntersecting); // DELETE
         if (entry.isIntersecting) {
           setPageLocation("Contact");
         }
@@ -27,6 +27,18 @@ const Contact = ({ setPageLocation }) => {
       { rootMargin: "-30% 0px -30% 0px" }
     );
     sectionObserver.observe(sectionRef.current);
+  }, []);
+
+  useEffect(() => {
+    const contactFormObserver = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        console.log("Contact Form", entry.isIntersecting); // DELETE
+        setContactFormIsVisible(entry.isIntersecting);
+      },
+      { threshold: 0.5 }
+    );
+    contactFormObserver.observe(sectionRef.current);
   }, []);
 
   return (
@@ -47,8 +59,9 @@ const Contact = ({ setPageLocation }) => {
 
       <div className={styles.container}>
         <div
+          ref={sectionRef}
           className={`${styles.content} ${
-            contentIsVisible ? styles.visible : ""
+            contactFormIsVisible ? styles.visible : ""
           }`}
         >
           <div className={styles.text}>
