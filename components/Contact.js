@@ -60,9 +60,11 @@ const Contact = ({ setPageLocation }) => {
       <div className={styles.container}>
         <div
           ref={sectionRef}
-          className={`${styles.content} ${
-            contactFormIsVisible ? styles.visible : ""
-          }`}
+          className={styles.content}
+          // BUG: Having this off screen makes the reCAPTCHA render inside div rather than on side of viewport
+          // className={`${styles.content} ${
+          //   contactFormIsVisible ? styles.visible : ""
+          // }`}
         >
           <div className={styles.text}>
             <h2>Contact</h2>
