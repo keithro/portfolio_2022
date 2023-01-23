@@ -31,7 +31,10 @@
 }
 
 .dark {
-  background-color: $color-gray-dark;
+  // background-color: $color-gray-dark;
+
+  background-color: rgba($color-gray-dark, 82%);
+  backdrop-filter: blur(3px);
 
   a {
     &:hover {
