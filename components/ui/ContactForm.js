@@ -8,31 +8,59 @@ import styles from "./../../styles/ui/ContactForm.module.scss";
 
 const ContactForm = ({ setSuccessfullySent }) => {
   const recaptchaRef = useRef();
+  const [formData, setFormData] = useState({});
+  const [touched, setTouched] = useState({
+    name: false,
+    email: false,
+    message: false,
+  });
   const [submitting, setSubmitting] = useState(false);
   const [errors, setErrors] = useState(null);
+
+  function handleTouch(event) {
+    const inputName = event.target.name;
+    setTouched({ ...touched, [inputName]: true });
+
+    // FIXME: or validate here? ...no
+  }
+
+  function handleFormDataChange(event) {
+    const inputName = event.target.name;
+    const inputValue = event.target.value;
+    setFormData({ ...formData, inputName: inputValue });
+
+    // FIXME: check if valid here
+    // const isCorrectLenth = input.name.length >= 3;
+    // const isValidCharacters = /[a-zA-Z]/.test(inputValue);
+    // // setNameIsValid(isCorrectLenth && isValidCharacters);
+    // const nameIsValid = isCorrectLenth && isValidCharacters;
+  }
 
   async function handleOnSubmit(e) {
     e.preventDefault();
     setSubmitting(true);
     setErrors(null);
 
-    const formData = {};
+    // const formData = {};
     // Using currentTarget obj to create array of data then iterated through and add to formData obj
-    Array.from(e.currentTarget.elements).forEach((field) => {
-      if (!field.name) return;
-      formData[field.name] = field.value;
-    });
+    // Array.from(e.currentTarget.elements).forEach((field) => {
+    //   if (!field.name) return;
+    //   formData[field.name] = field.value;
+    // });
+
+    // FIXME: CHECK IF EACH INPUT IS VALID ELSE SET THAT INPUT TO TOUCHED & DISABLE BUTTON
 
     try {
       const token = await recaptchaRef.current.executeAsync();
       recaptchaRef.current.reset();
-      formData.token = token;
+      // formData.token = token;
 
-      // console.log("The form data + token: ", formData);
+      console.log("The form data: ", formData);
 
       const response = await fetch("/api/mail", {
         method: "POST",
-        body: JSON.stringify(formData),
+        // body: JSON.stringify(formData), // DELETE
+        body: JSON.stringify({ ...formData, token }),
       });
       console.log(response.status);
       const data = await response.json();
@@ -58,16 +86,48 @@ const ContactForm = ({ setSuccessfullySent }) => {
       <form className={styles.form} method="post" onSubmit={handleOnSubmit}>
         {errors && <ErrorMessage errors={errors} />}
         <div>
-          <label htmlFor="name">name*</label>
-          <input type="text" name="name" />
+          <label
+            // className={`${nameIsValid ? styles.touched : ""}`}
+            htmlFor="name"
+          >
+            name*
+          </label>
+          <input
+            type="text"
+            name="name"
+            value={formData.name ? formData.name : ""}
+            onChange={handleFormDataChange}
+            onBlur={handleTouch}
+          />
         </div>
         <div>
-          <label htmlFor="email">email*</label>
-          <input type="email" name="email" />
+          <label
+            // className={`${emailIsValid ? styles.touched : ""}`}
+            htmlFor="email"
+          >
+            email*
+          </label>
+          <input
+            type="email"
+            name="email"
+            value={formData.email ? formData.email : ""}
+            onChange={handleFormDataChange}
+            onBlur={handleTouch}
+          />
         </div>
         <div>
-          <label htmlFor="message">message*</label>
-          <textarea name="message" />
+          <label
+            // className={`${messageIsValid ? styles.touched : ""}`}
+            htmlFor="message"
+          >
+            message*
+          </label>
+          <textarea
+            name="message"
+            value={formData.message ? formData.message : ""}
+            onChange={handleFormDataChange}
+            onBlur={handleTouch}
+          />
         </div>
         <button disabled={submitting}>
           Send Message <MailIcon />

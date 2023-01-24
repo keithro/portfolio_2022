@@ -78,3 +78,8 @@
     }
   }
 }
+
+// ADD SHAKE ANIMATION? - will need to move class to div and .touched > label
+.touched {
+  color: $color-red;
+}
