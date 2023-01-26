@@ -19,7 +19,6 @@ const Contact = ({ setPageLocation }) => {
     const sectionObserver = new IntersectionObserver(
       (entries) => {
         const entry = entries[0];
-        console.log("Contact section", entry.isIntersecting); // DELETE
         if (entry.isIntersecting) {
           setPageLocation("Contact");
         }
@@ -33,7 +32,6 @@ const Contact = ({ setPageLocation }) => {
     const contactFormObserver = new IntersectionObserver(
       (entries) => {
         const entry = entries[0];
-        console.log("Contact Form", entry.isIntersecting); // DELETE
         setContactFormIsVisible(entry.isIntersecting);
       },
       { threshold: 0.5 }
@@ -61,7 +59,7 @@ const Contact = ({ setPageLocation }) => {
         <div
           ref={sectionRef}
           className={styles.content}
-          // BUG: Having this off screen makes the reCAPTCHA render inside div rather than on side of viewport
+          // BUG: Having this form off screen makes the reCAPTCHA render inside it rather than on side of viewport
           // className={`${styles.content} ${
           //   contactFormIsVisible ? styles.visible : ""
           // }`}
