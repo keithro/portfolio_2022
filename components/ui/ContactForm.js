@@ -6,38 +6,67 @@ import MailIcon from "../icons/MailIcon";
 
 import styles from "./../../styles/ui/ContactForm.module.scss";
 
+// DELETE:
+// const initialFormVals = { name: "", email: "", message: "" };
+// const initialTouchState = { name: false, email: false, message: false };
+// const initialValidState = { name: false, email: false, message: false };
+const initialState = {
+  formVals: { name: "", email: "", message: "" },
+  touch: { name: false, email: false, message: false },
+  // isValid: { name: false, email: false, message: false },
+};
+
 const ContactForm = ({ setSuccessfullySent }) => {
   const recaptchaRef = useRef();
-  const [formData, setFormData] = useState({});
-  const [touched, setTouched] = useState({
-    name: false,
-    email: false,
-    message: false,
-  });
+  const [formData, setFormData] = useState(initialState.formVals);
+  const [touched, setTouched] = useState(initialState.touch);
   const [submitting, setSubmitting] = useState(false);
   const [errors, setErrors] = useState(null);
+
+  // FIXME: Should you make these list of inputErrors and add errors when you validate values
+  const nameIsValid =
+    /[a-zA-Z]/.test(formData.name) && formData.name.trim().length >= 3;
+  const emailIsValid = true;
+  const messageIsValid = formData.message.length >= 20;
+
+  const nameIsNotValid = !nameIsValid && touched.name;
+  const emailIsNotValid = !emailIsValid && touched.email;
+  const messageIsNotValid = !messageIsValid && touched.message;
+
+  let formDataIsValid = false;
+  if (nameIsValid && emailIsValid && messageIsValid) {
+    formDataIsValid = true;
+  }
 
   function handleTouch(event) {
     const inputName = event.target.name;
     setTouched({ ...touched, [inputName]: true });
 
-    // FIXME: or validate here? ...no
+    // DELETE
+    // // Checking only if invalid
+    // // FIXME: FINISH EMAIL AND MESSAGE
+    // if (!isCorrectLenth && !isValidCharacters) {
+    //   setNameIsValid(false);
+    // }
   }
 
-  function handleFormDataChange(event) {
+  function handleFormInputChange(event) {
     const inputName = event.target.name;
     const inputValue = event.target.value;
-    setFormData({ ...formData, inputName: inputValue });
+    setFormData({ ...formData, [inputName]: inputValue });
 
-    // FIXME: check if valid here
-    // const isCorrectLenth = input.name.length >= 3;
+    // DELETE
+    // // Checking if Valid
+    // // FIXME: FINISH EMAIL AND MESSAGE
+    // const isCorrectLenth = inputValue.trim().length >= 3;
     // const isValidCharacters = /[a-zA-Z]/.test(inputValue);
-    // // setNameIsValid(isCorrectLenth && isValidCharacters);
-    // const nameIsValid = isCorrectLenth && isValidCharacters;
+    // if (isCorrectLenth && isValidCharacters) {
+    //   setNameIsValid(true);
+    // }
   }
 
-  async function handleOnSubmit(e) {
-    e.preventDefault();
+  async function handleOnSubmit(event) {
+    event.preventDefault();
     setSubmitting(true);
     setErrors(null);
 
@@ -48,7 +77,11 @@ const ContactForm = ({ setSuccessfullySent }) => {
     //   formData[field.name] = field.value;
     // });
 
-    // FIXME: CHECK IF EACH INPUT IS VALID ELSE SET THAT INPUT TO TOUCHED & DISABLE BUTTON
+    setTouched({ name: true, email: true, message: true });
+
+    if (!nameIsValid) {
+      return;
+    }
 
     try {
       const token = await recaptchaRef.current.executeAsync();
@@ -69,8 +102,10 @@ const ContactForm = ({ setSuccessfullySent }) => {
         console.log("Something went wrong!", data.errors);
         setErrors(data.errors);
       } else {
-        console.log("Successfully sent!");
-        console.log(data);
+        console.log("Successfully sent!", data);
+
+        setFormData(initialState.formVals);
+        setTouched(initialState.touch);
         setSuccessfullySent(true);
       }
 
@@ -85,47 +120,38 @@ const ContactForm = ({ setSuccessfullySent }) => {
     <>
       <form className={styles.form} method="post" onSubmit={handleOnSubmit}>
         {errors && <ErrorMessage errors={errors} />}
-        <div>
-          <label
-            // className={`${nameIsValid ? styles.touched : ""}`}
-            htmlFor="name"
-          >
-            name*
+        <div className={`${nameIsNotValid ? styles.error : ""}`}>
+          <label htmlFor="name">
+            name*{nameIsNotValid && " must be 3 letters or more"}
           </label>
           <input
             type="text"
             name="name"
             value={formData.name ? formData.name : ""}
-            onChange={handleFormDataChange}
+            onChange={handleFormInputChange}
             onBlur={handleTouch}
           />
         </div>
-        <div>
-          <label
-            // className={`${emailIsValid ? styles.touched : ""}`}
-            htmlFor="email"
-          >
-            email*
+        <div className={`${emailIsNotValid ? styles.error : ""}`}>
+          <label htmlFor="email">
+            email*{emailIsNotValid && " must be a valid email address"}
           </label>
           <input
             type="email"
             name="email"
             value={formData.email ? formData.email : ""}
-            onChange={handleFormDataChange}
+            onChange={handleFormInputChange}
             onBlur={handleTouch}
           />
         </div>
-        <div>
-          <label
-            // className={`${messageIsValid ? styles.touched : ""}`}
-            htmlFor="message"
-          >
-            message*
+        <div className={`${messageIsNotValid ? styles.error : ""}`}>
+          <label htmlFor="message">
+            message*{messageIsNotValid && " must be 20 or more characters"}
           </label>
           <textarea
             name="message"
             value={formData.message ? formData.message : ""}
-            onChange={handleFormDataChange}
+            onChange={handleFormInputChange}
             onBlur={handleTouch}
           />
         </div>
