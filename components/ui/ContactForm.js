@@ -23,7 +23,6 @@ const ContactForm = ({ setSuccessfullySent }) => {
   const [submitting, setSubmitting] = useState(false);
   const [errors, setErrors] = useState(null);
 
-  // FIXME: Should you make these list of inputErrors and add errors when you validate values
   const nameIsValid =
     /[a-zA-Z]/.test(formData.name) && formData.name.trim().length >= 3;
   const emailIsValid = true;
@@ -41,41 +40,18 @@ const ContactForm = ({ setSuccessfullySent }) => {
   function handleTouch(event) {
     const inputName = event.target.name;
     setTouched({ ...touched, [inputName]: true });
-
-    // DELETE
-    // // Checking only if invalid
-    // // FIXME: FINISH EMAIL AND MESSAGE
-    // if (!isCorrectLenth && !isValidCharacters) {
-    //   setNameIsValid(false);
-    // }
   }
 
   function handleFormInputChange(event) {
     const inputName = event.target.name;
     const inputValue = event.target.value;
     setFormData({ ...formData, [inputName]: inputValue });
-
-    // DELETE
-    // // Checking if Valid
-    // // FIXME: FINISH EMAIL AND MESSAGE
-    // const isCorrectLenth = inputValue.trim().length >= 3;
-    // const isValidCharacters = /[a-zA-Z]/.test(inputValue);
-    // if (isCorrectLenth && isValidCharacters) {
-    //   setNameIsValid(true);
-    // }
   }
 
   async function handleOnSubmit(event) {
     event.preventDefault();
     setSubmitting(true);
     setErrors(null);
-
-    // const formData = {};
-    // Using currentTarget obj to create array of data then iterated through and add to formData obj
-    // Array.from(e.currentTarget.elements).forEach((field) => {
-    //   if (!field.name) return;
-    //   formData[field.name] = field.value;
-    // });
 
     setTouched({ name: true, email: true, message: true });
 
