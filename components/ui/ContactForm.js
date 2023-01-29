@@ -25,13 +25,15 @@ const ContactForm = ({ setSuccessfullySent }) => {
 
   const nameIsValid =
     /[a-zA-Z]/.test(formData.name) && formData.name.trim().length >= 3;
-  const emailIsValid = true;
+  const emailIsValid =
+    formData.email.includes("@") && formData.email.includes(".");
   const messageIsValid = formData.message.length >= 20;
 
   const nameIsNotValid = !nameIsValid && touched.name;
   const emailIsNotValid = !emailIsValid && touched.email;
   const messageIsNotValid = !messageIsValid && touched.message;
 
+  // FIXME: Not being used - need to disable button
   let formDataIsValid = false;
   if (nameIsValid && emailIsValid && messageIsValid) {
     formDataIsValid = true;
@@ -101,6 +103,7 @@ const ContactForm = ({ setSuccessfullySent }) => {
             name*{nameIsNotValid && " must be 3 letters or more"}
           </label>
           <input
+            required
             type="text"
             name="name"
             value={formData.name ? formData.name : ""}
@@ -113,6 +116,7 @@ const ContactForm = ({ setSuccessfullySent }) => {
             email*{emailIsNotValid && " must be a valid email address"}
           </label>
           <input
+            required
             type="email"
             name="email"
             value={formData.email ? formData.email : ""}
@@ -125,6 +129,7 @@ const ContactForm = ({ setSuccessfullySent }) => {
             message*{messageIsNotValid && " must be 20 or more characters"}
           </label>
           <textarea
+            required
             name="message"
             value={formData.message ? formData.message : ""}
             onChange={handleFormInputChange}

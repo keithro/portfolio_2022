@@ -29,16 +29,6 @@
 }
 
 .content {
-  // BUG: Having this off screen makes the reCAPTCHA render inside the div rather than on side of viewport
-  // opacity: 0;
-  // transform: translateY(10rem);
-  // transition: all 1000ms;
-
-  &.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
   @include respond(desktop) {
     display: grid;
     gap: 4rem;
@@ -105,18 +95,6 @@
 
   @include respond(desktop) {
     justify-content: end;
-  }
-}
-
-.success_message {
-  background-color: rgba($color-white, 0.25);
-  border-radius: $size-sm;
-  padding: $size-xl;
-  margin-bottom: $size-xl;
-
-  h2 {
-    margin-bottom: $size-md;
-    // color: $color-light-blue;
   }
 }
 

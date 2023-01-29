@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 
 import ContactForm from "./ui/ContactForm";
 import SocialLinks from "./ui/SocialLinks";
+import SuccessMessage from "./ui/SuccessMessage";
 import ContactImage1 from "./graphics/ContactImage1";
 import ContactImage2 from "./graphics/ContactImage2";
 import ElipseLarge from "./graphics/ElipseLarge";
@@ -13,7 +14,7 @@ const Contact = ({ setPageLocation }) => {
   const [contactFormIsVisible, setContactFormIsVisible] = useState(false);
   const [successfullySent, setSuccessfullySent] = useState(false);
   const sectionRef = useRef();
-  const contactFormRef = useRef();
+  // const contactFormRef = useRef(); // FIXME: Currently using sectionRef
 
   useEffect(() => {
     const sectionObserver = new IntersectionObserver(
@@ -36,6 +37,7 @@ const Contact = ({ setPageLocation }) => {
       },
       { threshold: 0.5 }
     );
+    // contactFormObserver.observe(contactFormRef.current);
     contactFormObserver.observe(sectionRef.current);
   }, []);
 
@@ -73,18 +75,15 @@ const Contact = ({ setPageLocation }) => {
             </p>
           </div>
 
-          {successfullySent || (
+          {/* {successfullySent || (
             <ContactForm setSuccessfullySent={setSuccessfullySent} />
           )}
 
-          {successfullySent && (
-            <div className={styles.success_message}>
-              <h2>Thank You!</h2>
-              <p>
-                Your message was sent successfully. I&#39;ll be in touch
-                shortly!
-              </p>
-            </div>
+          {successfullySent && <SuccessMessage />} */}
+          {successfullySent ? (
+            <SuccessMessage />
+          ) : (
+            <ContactForm setSuccessfullySent={setSuccessfullySent} />
           )}
 
           <div className={styles.social_links_container}>
