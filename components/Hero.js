@@ -50,11 +50,12 @@ const Hero = ({ setDarkNav, setPageLocation }) => {
       <CrossMark className={styles.cross_mark_4} fill={styles.colorPurple} />
 
       <div className={styles.content}>
-        <h2>A Full Stack Engineer</h2>
+        <h2 className={styles.heading_1}>A Full Stack Engineer</h2>
         <h1>
-          That Brings It <br /> All Together
+          <span className={styles.heading_2}>That Brings It</span>
+          <span className={styles.heading_3}>All Together</span>
         </h1>
-        <h2>Hello! I&#8217;m Keith</h2>
+        <h2 className={styles.heading_4}>Hello! I&#8217;m Keith</h2>
         <div className={styles.buttons}>
           <Link href="#contact">
             <a className={styles.contactButton}>

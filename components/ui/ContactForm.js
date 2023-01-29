@@ -11,7 +11,8 @@ const nameValidation = (value) => {
   return /[a-zA-Z]/.test(value) && value.trim().length >= 3;
 };
 const emailValidation = (value) => {
-  return value.includes("@") && value.includes(".");
+  // return value.includes("@") && value.includes(".");
+  return /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(value);
 };
 const messageValidation = (value) => {
   return value.length >= 20;
