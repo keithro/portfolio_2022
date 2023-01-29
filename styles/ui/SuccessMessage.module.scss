@@ -1,0 +1,13 @@
+@import "./../variables";
+
+.success_message {
+  background-color: rgba($color-white, 0.2);
+  border: 3px solid $color-light-blue;
+  border-radius: $size-sm;
+  padding: $size-xl;
+  margin-bottom: $size-xl;
+
+  h2 {
+    margin-bottom: $size-md;
+  }
+}

@@ -29,16 +29,6 @@
 }
 
 .content {
-  // BUG: Having this off screen makes the reCAPTCHA render inside the div rather than on side of viewport
-  // opacity: 0;
-  // transform: translateY(10rem);
-  // transition: all 1000ms;
-
-  &.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
   @include respond(desktop) {
     display: grid;
     gap: 4rem;
@@ -108,23 +98,16 @@
   }
 }
 
-.success_message {
-  background-color: rgba($color-white, 0.25);
-  border-radius: $size-sm;
-  padding: $size-xl;
-  margin-bottom: $size-xl;
-
-  h2 {
-    margin-bottom: $size-md;
-    color: $color-aqua;
-  }
-}
-
 .bg_elipse_sm,
 .bg_elipse_lg,
 .bg_img_1,
 .bg_img_2 {
   position: absolute;
+}
+
+.bg_elipse_lg,
+.bg_elipse_sm {
+  opacity: 0.7;
 }
 
 .bg_elipse_sm {
