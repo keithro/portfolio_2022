@@ -70,16 +70,11 @@ const Contact = ({ setPageLocation }) => {
             <h2>Contact</h2>
             <span></span>
             <p>
-              Have questions, comments or want to hire me? Just send me a
+              Have questions, comments or need help with a project? Send me a
               message and let&#39;s chat!
             </p>
           </div>
 
-          {/* {successfullySent || (
-            <ContactForm setSuccessfullySent={setSuccessfullySent} />
-          )}
-
-          {successfullySent && <SuccessMessage />} */}
           {successfullySent ? (
             <SuccessMessage />
           ) : (

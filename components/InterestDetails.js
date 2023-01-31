@@ -2,7 +2,7 @@ const InterestDetails = () => {
   return (
     <>
       <p>
-        I&#39;ve also got so many other interests and I love to chat about them
+        I&#39;ve also got so many other interests and I love to talk about them
         all so feel free to drop me a line!
       </p>
       <ul>
